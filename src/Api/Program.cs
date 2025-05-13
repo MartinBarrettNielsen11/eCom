@@ -1,3 +1,5 @@
+using Scalar.AspNetCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -32,8 +34,17 @@ app.MapGet("/weatherforecast", () =>
         return forecast;
     })
     .WithName("GetWeatherForecast");
+app.MapOpenApi().AllowAnonymous();
+
+app.MapScalarApiReference(options =>
+{
+    options.Title = "WsrmConnector.Api";
+    options.Theme = ScalarTheme.Kepler;
+}).AllowAnonymous();
 
 app.Run();
+
+public class ProgramApi;
 
 record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
 {
