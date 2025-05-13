@@ -1,8 +1,23 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionFolder1", "SolutionFolder1", "{5D7246C5-EAC2-4E27-B433-AEE4AFD0357F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionFolder2", "SolutionFolder2", "{9F2B2922-1AC1-4B45-AFC7-AD8C21507EEC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api", "Api\Api.csproj", "{4C98EB3D-39C1-43C4-9529-27B040A1FD66}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4C98EB3D-39C1-43C4-9529-27B040A1FD66} = {5D7246C5-EAC2-4E27-B433-AEE4AFD0357F}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4C98EB3D-39C1-43C4-9529-27B040A1FD66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C98EB3D-39C1-43C4-9529-27B040A1FD66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C98EB3D-39C1-43C4-9529-27B040A1FD66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C98EB3D-39C1-43C4-9529-27B040A1FD66}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
