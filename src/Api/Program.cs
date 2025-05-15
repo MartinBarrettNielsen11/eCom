@@ -8,12 +8,6 @@ builder.Services.AddOpenApi();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.MapOpenApi();
-}
-
 app.UseHttpsRedirection();
 
 var summaries = new[]
@@ -38,15 +32,15 @@ app.MapOpenApi().AllowAnonymous();
 
 app.MapScalarApiReference(options =>
 {
-    options.Title = "WsrmConnector.Api";
-    options.Theme = ScalarTheme.Kepler;
+    options.Title = "Tbd.Api";
+    options.Theme = ScalarTheme.Laserwave;
 }).AllowAnonymous();
 
 app.Run();
-
-public class ProgramApi;
 
 record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
 {
     public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
 }
+
+public class ProgramApi;
