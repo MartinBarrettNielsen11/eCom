@@ -58,6 +58,10 @@
               "target": "Package",
               "version": "[9.0.4, )"
             },
+            "Microsoft.EntityFramework.SqlServer": {
+              "target": "Package",
+              "version": "[6.5.1, )"
+            },
             "Microsoft.EntityFrameworkCore.Cosmos": {
               "target": "Package",
               "version": "[9.0.5, )"
