@@ -1,3 +1,4 @@
+using Infrastructure;
 using MassTransit;
 using Scalar.AspNetCore;
 
@@ -12,6 +13,10 @@ builder.Services.AddMassTransit(x =>
         cfg.ConfigureEndpoints(context);
     });
 });
+
+var connectionString = builder.Configuration.GetConnectionString("CommunicationContext");
+
+builder.Services.AddInfrastructure(connectionString);
 
 var app = builder.Build();
 
