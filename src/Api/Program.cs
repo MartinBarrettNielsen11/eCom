@@ -1,3 +1,5 @@
+using AutoMapper;
+using Contracts.Models;
 using DataAccess;
 using Infrastructure;
 using MassTransit;
@@ -28,17 +30,11 @@ var summaries = new[]
     "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
 };
 
-app.MapGet("/weatherforecast", () =>
+app.MapGet("/weatherforecast", async (
+        OrderModel model, 
+        CancellationToken cancellationToken) =>
     {
-        var forecast = Enumerable.Range(1, 5).Select(index =>
-                new WeatherForecast
-                (
-                    DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-                    Random.Shared.Next(-20, 55),
-                    summaries[Random.Shared.Next(summaries.Length)]
-                ))
-            .ToArray();
-        return forecast;
+        //var ordertoAdd = Mapper
     })
     .WithName("GetWeatherForecast");
 app.MapOpenApi().AllowAnonymous();
