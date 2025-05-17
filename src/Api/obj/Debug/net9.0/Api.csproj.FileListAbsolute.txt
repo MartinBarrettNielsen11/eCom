@@ -33,3 +33,7 @@ C:\Users\mdn\Desktop\Tbd\src\Api\obj\Debug\net9.0\Api.pdb
 C:\Users\mdn\Desktop\Tbd\src\Api\obj\Debug\net9.0\Api.genruntimeconfig.cache
 C:\Users\mdn\Desktop\Tbd\src\Api\obj\Debug\net9.0\ref\Api.dll
 C:\Users\mdn\Desktop\Tbd\src\Api\bin\Debug\net9.0\Scalar.AspNetCore.dll
+C:\Users\mdn\Desktop\Tbd\src\Api\bin\Debug\net9.0\MassTransit.dll
+C:\Users\mdn\Desktop\Tbd\src\Api\bin\Debug\net9.0\MassTransit.Abstractions.dll
+C:\Users\mdn\Desktop\Tbd\src\Api\bin\Debug\net9.0\MassTransit.RabbitMqTransport.dll
+C:\Users\mdn\Desktop\Tbd\src\Api\bin\Debug\net9.0\RabbitMQ.Client.dll
