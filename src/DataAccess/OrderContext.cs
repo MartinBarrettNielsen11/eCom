@@ -1,7 +1,6 @@
-﻿using Domain.Entities;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
-namespace Domain;
+namespace DataAccess;
 
 public class OrderContext : DbContext
 {
