@@ -1,3 +1,4 @@
+using DataAccess;
 using Infrastructure;
 using MassTransit;
 using Scalar.AspNetCore;
@@ -14,7 +15,7 @@ builder.Services.AddMassTransit(x =>
     });
 });
 
-var connectionString = builder.Configuration.GetConnectionString("CommunicationContext");
+var connectionString = builder.Configuration.GetConnectionString("OrdersContext");
 
 builder.Services.AddInfrastructure(connectionString);
 
@@ -47,6 +48,11 @@ app.MapScalarApiReference(options =>
     options.Title = "Tbd.Api";
     options.Theme = ScalarTheme.Laserwave;
 }).AllowAnonymous();
+
+using (var serviceScope = app.Services.GetRequiredService<IServiceScopeFactory>().CreateScope())
+{
+    serviceScope.ServiceProvider.GetService<OrderContext>()!.Database.EnsureCreated();
+}
 
 app.Run();
 

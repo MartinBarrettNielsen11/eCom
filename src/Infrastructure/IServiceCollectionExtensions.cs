@@ -10,5 +10,5 @@ public static class IServiceCollectionExtensions
 {
     public static IServiceCollection AddInfrastructure(this IServiceCollection services, string? connectionString) =>
         services.AddDbContext<OrderContext>(options => options
-            .UseSqlServer(connectionString));
+            .UseSqlite(connectionString));
 }

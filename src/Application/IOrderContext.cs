@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Service;
 
-public interface IOrdersContext
+public interface IOrderContext
 {
     public DbSet<Customer> Customers { get; set; }
     public DbSet<Order> Orders { get; set; }

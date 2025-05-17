@@ -1,12 +1,12 @@
 ﻿using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
+using Service;
 
 namespace DataAccess;
 
-public class OrderContext : DbContext
+public class OrderContext(DbContextOptions<OrderContext> options) : 
+    DbContext(options), IOrderContext
 {
-    public OrderContext(DbContextOptions<OrderContext> options) : base(options) { }
-
     public DbSet<Customer> Customers { get; set; }
     public DbSet<Order> Orders { get; set; }
     public DbSet<OrderItem> OrderItems { get; set; }
