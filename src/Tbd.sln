@@ -1,8 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionFolder1", "SolutionFolder1", "{5D7246C5-EAC2-4E27-B433-AEE4AFD0357F}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Management", "Management", "{5D7246C5-EAC2-4E27-B433-AEE4AFD0357F}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionFolder2", "SolutionFolder2", "{9F2B2922-1AC1-4B45-AFC7-AD8C21507EEC}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Contracts", "Contracts", "{9F2B2922-1AC1-4B45-AFC7-AD8C21507EEC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api", "Api\Api.csproj", "{4C98EB3D-39C1-43C4-9529-27B040A1FD66}"
 EndProject
@@ -13,6 +13,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{328A7324-5BD1-4211-8139-AA488A2C6AEF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{04F1283D-AD93-4A1B-ABA3-CFF9D7C6FAB5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contracts", "Contracts\Contracts.csproj", "{87C3FECD-CC3A-4EAB-80DD-81C9808A39D7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,6 +27,7 @@ Global
 		{5FB590CB-7014-4DD7-AAAD-AD91590FF1CC} = {5D7246C5-EAC2-4E27-B433-AEE4AFD0357F}
 		{328A7324-5BD1-4211-8139-AA488A2C6AEF} = {5D7246C5-EAC2-4E27-B433-AEE4AFD0357F}
 		{04F1283D-AD93-4A1B-ABA3-CFF9D7C6FAB5} = {5D7246C5-EAC2-4E27-B433-AEE4AFD0357F}
+		{87C3FECD-CC3A-4EAB-80DD-81C9808A39D7} = {9F2B2922-1AC1-4B45-AFC7-AD8C21507EEC}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{4C98EB3D-39C1-43C4-9529-27B040A1FD66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -47,5 +50,9 @@ Global
 		{04F1283D-AD93-4A1B-ABA3-CFF9D7C6FAB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{04F1283D-AD93-4A1B-ABA3-CFF9D7C6FAB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{04F1283D-AD93-4A1B-ABA3-CFF9D7C6FAB5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87C3FECD-CC3A-4EAB-80DD-81C9808A39D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87C3FECD-CC3A-4EAB-80DD-81C9808A39D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87C3FECD-CC3A-4EAB-80DD-81C9808A39D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87C3FECD-CC3A-4EAB-80DD-81C9808A39D7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
