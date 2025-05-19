@@ -1,5 +1,4 @@
 using Api.Consumer;
-using AutoMapper;
 using Contracts.Events;
 using Contracts.Models;
 using DataAccess;
@@ -44,6 +43,7 @@ app.MapGet("/weatherforecast", async (
             OrderDate = DateTime.Now,
         };
 
+        /*
         var createdOrder = await _orderService.CreateOrder(order);
         
         var notifyOrderCreated = _publishEndpoint.Publish(new OrderCreated()
@@ -59,6 +59,7 @@ app.MapGet("/weatherforecast", async (
                 context.TimeToLive = TimeSpan.FromSeconds(30);
             }
         );
+        */
     })
     .WithName("GetWeatherForecast");
 app.MapOpenApi().AllowAnonymous();

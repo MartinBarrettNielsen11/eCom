@@ -1,21 +1,22 @@
 ﻿using Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace Service;
 
-public class OrderService : IOrderService
+public class OrderService(IOrderRepository orderRepository) : IOrderService
 {
-    public Task<Order> CreateOrder(Order order)
+    public async Task<Order> CreateOrder(Order order)
     {
-        throw new NotImplementedException();
+        return await orderRepository.CreateOrder(order);
     }
 
-    public Task<Order> GetOrderAsync(int id)
+    public async Task<Order> GetOrderAsync(int id)
     {
-        throw new NotImplementedException();
+        return await orderRepository.GetOrderAsync(id);
     }
 
-    public Task<bool> OrderExistsAsync(int id)
+    public async Task<bool> OrderExistsAsync(int id)
     {
-        throw new NotImplementedException();
+        return await orderRepository.OrderExistsAsync(id);
     }
 }
