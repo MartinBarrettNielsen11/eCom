@@ -1,4 +1,6 @@
-﻿namespace DataAccess;
+﻿using Service;
+
+namespace DataAccess;
 
 public static class DataSeeder
 {

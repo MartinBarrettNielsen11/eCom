@@ -5,6 +5,7 @@ using DataAccess;
 using Domain.Entities;
 using Infrastructure;
 using MassTransit;
+using MassTransit.Transports;
 using Scalar.AspNetCore;
 using Service;
 
@@ -34,6 +35,8 @@ app.UseHttpsRedirection();
 
 app.MapGet("/weatherforecast", async (
         OrderModel model, 
+        IOrderService orderService,
+        IPublishEndpoint publishEndpoint,
         CancellationToken cancellationToken) =>
     {
         var order = new Order()
@@ -43,23 +46,19 @@ app.MapGet("/weatherforecast", async (
             OrderDate = DateTime.Now,
         };
 
-        /*
-        var createdOrder = await _orderService.CreateOrder(order);
-        
-        var notifyOrderCreated = _publishEndpoint.Publish(new OrderCreated()
-            {
-                CreatedAt = createdOrder.OrderDate,
-                Id = createdOrder.Id,
-                OrderId = createdOrder.OrderId,
-                TotalAmount = createdOrder.OrderItems.Sum(p => p.Price * p.Quantity)
+        var createdOrder = await orderService.CreateOrder(order);
 
-            }, context =>
-            {
-                context.Headers.Set("my-custom-header", "value");
-                context.TimeToLive = TimeSpan.FromSeconds(30);
-            }
-        );
-        */
+        await publishEndpoint.Publish(new OrderCreated()
+        {
+            CreatedAt = createdOrder.OrderDate,
+            Id = createdOrder.Id,
+            OrderId = createdOrder.OrderId,
+            TotalAmount = createdOrder.OrderItems.Sum(p => p.Price * p.Quantity)
+        }, context =>
+        {
+            context.Headers.Set("header-v1", "header-v1-value");
+            context.TimeToLive = TimeSpan.FromSeconds(30);
+        });
     })
     .WithName("GetWeatherForecast");
 app.MapOpenApi().AllowAnonymous();

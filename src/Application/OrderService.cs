@@ -10,7 +10,7 @@ public class OrderService(IOrderRepository orderRepository) : IOrderService
         return await orderRepository.CreateOrder(order);
     }
 
-    public async Task<Order> GetOrderAsync(int id)
+    public async Task<Order?> GetOrderAsync(int id)
     {
         return await orderRepository.GetOrderAsync(id);
     }

@@ -2,6 +2,7 @@
 using DataAccess;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
+using Service;
 
 namespace Infrastructure;
 
@@ -10,5 +11,5 @@ public static class IServiceCollectionExtensions
 {
     public static IServiceCollection AddInfrastructure(this IServiceCollection services, string? connectionString) =>
         services.AddDbContext<OrderContext>(options => options
-            .UseSqlite(connectionString));
+            .UseSqlServer(connectionString));
 }
