@@ -1,4 +1,5 @@
 using Api.Consumer;
+using AutoMapper;
 using Contracts.Events;
 using Contracts.Models;
 using DataAccess;
@@ -34,21 +35,17 @@ var app = builder.Build();
 app.UseHttpsRedirection();
 
 
-app.MapPost("/orders", async (
-        [FromBody] OrderModel model, 
-        IOrderService orderService,
-        IPublishEndpoint publishEndpoint,
-        CancellationToken cancellationToken) =>
+app.MapPost("/orders", async(
+    [FromBody] OrderModel model,
+    IOrderService orderService,
+    IPublishEndpoint publishEndpoint,
+    IMapper mapper,
+    CancellationToken cancellationToken) =>
     {
-        var order = new Order()
-        {
-            OrderId = Guid.NewGuid(),
-            CustomerId = 1,
-            OrderDate = DateTime.Now,
-        };
-
+        var order = mapper.Map<Order>(model);
+        
         var createdOrder = await orderService.CreateOrder(order, cancellationToken);
-
+        
         await publishEndpoint.Publish(new OrderCreated()
         {
             CreatedAt = createdOrder.OrderDate,
@@ -60,8 +57,12 @@ app.MapPost("/orders", async (
             context.Headers.Set("header-v1", "header-v1-value");
             context.TimeToLive = TimeSpan.FromSeconds(30);
         }, cancellationToken);
+
+        //return Results.CreatedAtRoute("CreateOrder", new { id = createdOrder.Id }, createdOrder);
     })
-    .WithName("GetWeatherForecast");
+    .Produces(StatusCodes.Status200OK)
+    .Produces(StatusCodes.Status400BadRequest);
+
 app.MapOpenApi().AllowAnonymous();
 
 app.MapScalarApiReference(options =>
