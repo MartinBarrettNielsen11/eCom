@@ -1,6 +1,9 @@
+using Api.Consumer;
 using AutoMapper;
+using Contracts.Events;
 using Contracts.Models;
 using DataAccess;
+using Domain.Entities;
 using Infrastructure;
 using MassTransit;
 using Scalar.AspNetCore;
@@ -11,6 +14,7 @@ builder.Services.AddOpenApi();
 
 builder.Services.AddMassTransit(x =>
 {
+    x.AddConsumer<OrderCreatedConsumer, OrderCreatedConsumerDefinition>();
     x.UsingRabbitMq((context, cfg) =>
     {
         cfg.ConfigureEndpoints(context);
@@ -25,16 +29,33 @@ var app = builder.Build();
 
 app.UseHttpsRedirection();
 
-var summaries = new[]
-{
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
 
 app.MapGet("/weatherforecast", async (
         OrderModel model, 
         CancellationToken cancellationToken) =>
     {
-        //var ordertoAdd = Mapper
+        var order = new Order()
+        {
+            OrderId = model.OrderId,
+            CustomerId = 1,
+            OrderDate = DateTime.Now,
+        };
+
+        var createdOrder = await _orderService.CreateOrder(order);
+        
+        var notifyOrderCreated = _publishEndpoint.Publish(new OrderCreated()
+            {
+                CreatedAt = createdOrder.OrderDate,
+                Id = createdOrder.Id,
+                OrderId = createdOrder.OrderId,
+                TotalAmount = createdOrder.OrderItems.Sum(p => p.Price * p.Quantity)
+
+            }, context =>
+            {
+                context.Headers.Set("my-custom-header", "value");
+                context.TimeToLive = TimeSpan.FromSeconds(30);
+            }
+        );
     })
     .WithName("GetWeatherForecast");
 app.MapOpenApi().AllowAnonymous();
@@ -52,9 +73,5 @@ using (var serviceScope = app.Services.GetRequiredService<IServiceScopeFactory>(
 
 app.Run();
 
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}
 
 public class ProgramApi;
