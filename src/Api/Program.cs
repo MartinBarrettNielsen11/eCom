@@ -7,6 +7,7 @@ using Domain.Entities;
 using Infrastructure;
 using MassTransit;
 using Scalar.AspNetCore;
+using Service;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,6 +25,8 @@ builder.Services.AddMassTransit(x =>
 var connectionString = builder.Configuration.GetConnectionString("OrdersContext");
 
 builder.Services.AddInfrastructure(connectionString);
+builder.Services.AddScoped<IOrderRepository, OrderRepository>();
+builder.Services.AddScoped<IOrderService, OrderService>();
 
 var app = builder.Build();
 
