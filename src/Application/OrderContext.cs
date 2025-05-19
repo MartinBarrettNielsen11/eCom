@@ -1,8 +1,7 @@
 ﻿using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
-using Service;
 
-namespace DataAccess;
+namespace Service;
 
 public class OrderContext(DbContextOptions<OrderContext> options) : 
     DbContext(options), IOrderContext

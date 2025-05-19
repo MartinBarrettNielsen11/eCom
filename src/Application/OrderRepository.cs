@@ -1,21 +1,30 @@
 ﻿using Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace Service;
 
 public class OrderRepository : IOrderRepository
 {
-    public Task<Order> CreateOrder(Order order)
+    private readonly OrderContext _context;
+
+    public OrderRepository(OrderContext context)
     {
-        throw new NotImplementedException();
+        _context = context;
     }
 
-    public Task<Order> GetOrderAsync(int id)
+    public async Task<Order> CreateOrder(Order order)
     {
-        throw new NotImplementedException();
+        _context.Orders.Add(order);
+        await _context.SaveChangesAsync();
+        return order;
     }
 
-    public Task<bool> OrderExistsAsync(int id)
-    {
-        throw new NotImplementedException();
-    }
+    public async Task<Order?> GetOrderAsync(int id) =>
+        await _context.Orders
+            .Include(o => o.Customer)
+            .Include(o => o.OrderItems)
+            .FirstOrDefaultAsync(o => o.Id == id);
+
+    
+    public async Task<bool> OrderExistsAsync(int id) => await _context.Orders.AnyAsync(e => e.Id == id);
 }
