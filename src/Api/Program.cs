@@ -6,6 +6,7 @@ using Domain.Entities;
 using Infrastructure;
 using MassTransit;
 using MassTransit.Transports;
+using Microsoft.AspNetCore.Mvc;
 using Scalar.AspNetCore;
 using Service;
 
@@ -33,20 +34,20 @@ var app = builder.Build();
 app.UseHttpsRedirection();
 
 
-app.MapGet("/weatherforecast", async (
-        OrderModel model, 
+app.MapPost("/orders", async (
+        [FromBody] OrderModel model, 
         IOrderService orderService,
         IPublishEndpoint publishEndpoint,
         CancellationToken cancellationToken) =>
     {
         var order = new Order()
         {
-            OrderId = model.OrderId,
+            OrderId = Guid.NewGuid(),
             CustomerId = 1,
             OrderDate = DateTime.Now,
         };
 
-        var createdOrder = await orderService.CreateOrder(order);
+        var createdOrder = await orderService.CreateOrder(order, cancellationToken);
 
         await publishEndpoint.Publish(new OrderCreated()
         {
@@ -58,7 +59,7 @@ app.MapGet("/weatherforecast", async (
         {
             context.Headers.Set("header-v1", "header-v1-value");
             context.TimeToLive = TimeSpan.FromSeconds(30);
-        });
+        }, cancellationToken);
     })
     .WithName("GetWeatherForecast");
 app.MapOpenApi().AllowAnonymous();
