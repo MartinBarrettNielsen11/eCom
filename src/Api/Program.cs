@@ -1,12 +1,11 @@
 using Api.Consumer;
 using AutoMapper;
 using Contracts.Events;
+using Contracts.Mappings;
 using Contracts.Models;
-using DataAccess;
 using Domain.Entities;
 using Infrastructure;
 using MassTransit;
-using MassTransit.Transports;
 using Microsoft.AspNetCore.Mvc;
 using Scalar.AspNetCore;
 using Service;
@@ -27,6 +26,7 @@ builder.Services.AddMassTransit(x =>
 var connectionString = builder.Configuration.GetConnectionString("OrdersContext");
 
 builder.Services.AddInfrastructure(connectionString);
+builder.Services.AddAutoMapper(typeof(OrderProfileMapping));
 builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 builder.Services.AddScoped<IOrderService, OrderService>();
 
@@ -57,8 +57,6 @@ app.MapPost("/orders", async(
             context.Headers.Set("header-v1", "header-v1-value");
             context.TimeToLive = TimeSpan.FromSeconds(30);
         }, cancellationToken);
-
-        //return Results.CreatedAtRoute("CreateOrder", new { id = createdOrder.Id }, createdOrder);
     })
     .Produces(StatusCodes.Status200OK)
     .Produces(StatusCodes.Status400BadRequest);
