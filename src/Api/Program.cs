@@ -48,7 +48,7 @@ app.MapPost("/orders", async(
         
         await publishEndpoint.Publish(new OrderCreated()
         {
-            CreatedAt = createdOrder.OrderDate,
+            CreatedAt = createdOrder.OrderDate, 
             Id = createdOrder.Id,
             OrderId = createdOrder.OrderId,
             TotalAmount = createdOrder.OrderItems.Sum(p => p.Price * p.Quantity)
