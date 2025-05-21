@@ -1,7 +1,8 @@
 ﻿using Domain.Entities;
+using Management.Application;
 using Microsoft.EntityFrameworkCore;
 
-namespace Management.Application;
+namespace Management.Persistence;
 
 public class OrderContext(DbContextOptions<OrderContext> options) : 
     DbContext(options), IOrderContext
