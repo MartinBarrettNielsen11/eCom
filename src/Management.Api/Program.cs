@@ -11,6 +11,7 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Scalar.AspNetCore;
 using Service;
+using Service.CommandHandlers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -41,28 +42,15 @@ app.UseHttpsRedirection();
 
 
 app.MapPost("/orders", async(
-    [FromBody] OrderModel model,
-    IOrderService orderService,
-    IPublishEndpoint publishEndpoint,
+    [FromBody] OrderModel request,
     IMapper mapper,
     ISender sender,
     CancellationToken cancellationToken) =>
     {
-        var order = mapper.Map<Order>(model);
-        
-        var createdOrder = await orderService.CreateOrder(order, cancellationToken);
-        
-        await publishEndpoint.Publish(new OrderCreated()
-        {
-            CreatedAt = createdOrder.OrderDate, 
-            Id = createdOrder.Id,
-            OrderId = createdOrder.OrderId,
-            TotalAmount = createdOrder.OrderItems.Sum(p => p.Price * p.Quantity)
-        }, context =>
-        {
-            context.Headers.Set("header-v1", "header-v1-value");
-            context.TimeToLive = TimeSpan.FromSeconds(30);
-        }, cancellationToken);
+        //var order = mapper.Map<Order>(model);
+
+        var result = await sender.Send(request.ToCommand(), cancellationToken);
+
     })
     .Produces(StatusCodes.Status200OK)
     .Produces(StatusCodes.Status400BadRequest);

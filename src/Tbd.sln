@@ -4,15 +4,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Management", "Management", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Contracts", "Contracts", "{9F2B2922-1AC1-4B45-AFC7-AD8C21507EEC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api", "Api\Api.csproj", "{4C98EB3D-39C1-43C4-9529-27B040A1FD66}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Management.Api", "Management.Api\Management.Api.csproj", "{4C98EB3D-39C1-43C4-9529-27B040A1FD66}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Application\Application.csproj", "{F6D3D35B-8626-4FEA-8E57-D6E278AAFC82}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Management.Application", "Management.Application\Management.Application.csproj", "{F6D3D35B-8626-4FEA-8E57-D6E278AAFC82}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{5FB590CB-7014-4DD7-AAAD-AD91590FF1CC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Management.Domain", "Management.Domain\Management.Domain.csproj", "{5FB590CB-7014-4DD7-AAAD-AD91590FF1CC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{328A7324-5BD1-4211-8139-AA488A2C6AEF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Management.Infrastructure", "Management.Infrastructure\Management.Infrastructure.csproj", "{328A7324-5BD1-4211-8139-AA488A2C6AEF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{04F1283D-AD93-4A1B-ABA3-CFF9D7C6FAB5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Management.DataAccess", "Management.DataAccess\Management.DataAccess.csproj", "{04F1283D-AD93-4A1B-ABA3-CFF9D7C6FAB5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contracts", "Contracts\Contracts.csproj", "{87C3FECD-CC3A-4EAB-80DD-81C9808A39D7}"
 EndProject
@@ -20,7 +20,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Persistence", "Persistence\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Notifications", "Notifications", "{3F05FA16-1965-44CD-A191-03650C3134FE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdminNotification.Worker", "AdminNotification.Worker\AdminNotification.Worker.csproj", "{0D55445F-F50E-4CA5-B9D1-4A1EB85B6B31}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notifications.AdminNotification.Worker", "Notifications.AdminNotification.Worker\Notifications.AdminNotification.Worker.csproj", "{0D55445F-F50E-4CA5-B9D1-4A1EB85B6B31}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
