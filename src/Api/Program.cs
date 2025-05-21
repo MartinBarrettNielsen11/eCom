@@ -1,4 +1,5 @@
 using Api.Consumer;
+using Application;
 using AutoMapper;
 using Contracts.Events;
 using Contracts.Mappings;
@@ -24,7 +25,8 @@ builder.Services.AddMassTransit(x =>
     });
 });
 
-builder.Services.AddMediator(AssemblyRef.Assembly);
+builder.Services
+    .AddApplication();
 
 var connectionString = builder.Configuration.GetConnectionString("OrdersContext");
 
