@@ -2,12 +2,12 @@ using Api.Consumer;
 using AutoMapper;
 using Contracts.Mappings;
 using Contracts.Models;
-using Infrastructure;
+using Management.Infrastructure;
 using Management.Application;
+using Management.Persistence;
 using MassTransit;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Options;
 using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);

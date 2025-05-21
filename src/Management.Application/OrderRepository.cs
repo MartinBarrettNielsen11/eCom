@@ -5,9 +5,9 @@ namespace Management.Application;
 
 public class OrderRepository : IOrderRepository
 {
-    private readonly OrderContext _context;
+    private readonly IOrderContext _context;
 
-    public OrderRepository(OrderContext context)
+    public OrderRepository(IOrderContext context)
     {
         _context = context;
     }
