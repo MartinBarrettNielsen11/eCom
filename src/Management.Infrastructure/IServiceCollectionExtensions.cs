@@ -1,10 +1,9 @@
 ﻿using System.Diagnostics.CodeAnalysis;
-using DataAccess;
-using Management.Application;
+using Management.Persistence;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 
-namespace Infrastructure;
+namespace Management.Infrastructure;
 
 [SuppressMessage("ReSharper", "InconsistentNaming")]
 public static class IServiceCollectionExtensions
