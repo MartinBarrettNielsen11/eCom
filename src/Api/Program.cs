@@ -6,6 +6,7 @@ using Contracts.Models;
 using Domain.Entities;
 using Infrastructure;
 using MassTransit;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Scalar.AspNetCore;
 using Service;
@@ -22,6 +23,8 @@ builder.Services.AddMassTransit(x =>
         cfg.ConfigureEndpoints(context);
     });
 });
+
+builder.Services.AddMediator(AssemblyRef.Assembly);
 
 var connectionString = builder.Configuration.GetConnectionString("OrdersContext");
 
@@ -40,6 +43,7 @@ app.MapPost("/orders", async(
     IOrderService orderService,
     IPublishEndpoint publishEndpoint,
     IMapper mapper,
+    ISender sender,
     CancellationToken cancellationToken) =>
     {
         var order = mapper.Map<Order>(model);
