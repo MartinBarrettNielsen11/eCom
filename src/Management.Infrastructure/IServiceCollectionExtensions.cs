@@ -1,8 +1,8 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using DataAccess;
+using Management.Application;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
-using Service;
 
 namespace Infrastructure;
 

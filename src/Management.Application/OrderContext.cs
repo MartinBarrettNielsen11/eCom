@@ -1,7 +1,7 @@
 ﻿using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace Service;
+namespace Management.Application;
 
 public class OrderContext(DbContextOptions<OrderContext> options) : 
     DbContext(options), IOrderContext

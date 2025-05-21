@@ -1,9 +1,9 @@
-﻿using Application.Results;
-using Contracts.Events;
+﻿using Contracts.Events;
+using Management.Application.Results;
 using MassTransit;
 using MediatR;
 
-namespace Service.CommandHandlers;
+namespace Management.Application.CommandHandlers;
 
 public record CreateOrderCommand(Guid OrderId, int CustomerId, DateTime OrderDate) : IRequest<CommandResult<EmptyResult>>;
 

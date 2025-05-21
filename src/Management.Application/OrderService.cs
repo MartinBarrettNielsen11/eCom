@@ -1,7 +1,6 @@
 ﻿using Domain.Entities;
-using Microsoft.EntityFrameworkCore;
 
-namespace Service;
+namespace Management.Application;
 
 public class OrderService(IOrderRepository orderRepository) : IOrderService
 {

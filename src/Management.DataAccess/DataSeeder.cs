@@ -1,4 +1,4 @@
-﻿using Service;
+﻿using Management.Application;
 
 namespace DataAccess;
 

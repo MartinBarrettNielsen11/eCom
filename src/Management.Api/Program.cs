@@ -1,17 +1,13 @@
 using Api.Consumer;
-using Application;
 using AutoMapper;
-using Contracts.Events;
 using Contracts.Mappings;
 using Contracts.Models;
-using Domain.Entities;
 using Infrastructure;
+using Management.Application;
 using MassTransit;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Scalar.AspNetCore;
-using Service;
-using Service.CommandHandlers;
 
 var builder = WebApplication.CreateBuilder(args);
 

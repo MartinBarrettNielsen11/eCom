@@ -1,6 +1,4 @@
-﻿using Application.Results;
-
-namespace Application.Results;
+﻿namespace Management.Application.Results;
 
 public abstract class BaseResult
 {

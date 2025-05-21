@@ -1,8 +1,6 @@
-﻿using Application;
-using MediatR;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 
-namespace Application;
+namespace Management.Application;
 
 public static class DependencyInjection
 {

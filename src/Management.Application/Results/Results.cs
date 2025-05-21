@@ -1,4 +1,4 @@
-﻿namespace Application.Results;
+﻿namespace Management.Application.Results;
 
 public static class CommandResult
 {
