@@ -1,4 +1,5 @@
 ﻿using Contracts.Events;
+using Contracts.Models;
 using Domain.Entities;
 using Management.Application.Results;
 using MassTransit;
@@ -6,7 +7,7 @@ using MediatR;
 
 namespace Management.Application.CommandHandlers;
 
-public record CreateOrderCommand(Guid OrderId, int CustomerId, DateTime OrderDate) : IRequest<CommandResult<Guid>>;
+public record CreateOrderCommand(ICollection<OrderItemModel> OrderItems) : IRequest<CommandResult<Guid>>;
 
 public class CreateOrderCommandHandler(IPublishEndpoint publishEndpoint, IOrderService orderService) 
     : IRequestHandler<CreateOrderCommand, CommandResult<Guid>>
@@ -15,10 +16,15 @@ public class CreateOrderCommandHandler(IPublishEndpoint publishEndpoint, IOrderS
     {
         var order = new Order
         {
-            OrderId = command.OrderId,
-            CustomerId = command.CustomerId,
-            OrderDate = command.OrderDate,
-            OrderItems = new List<OrderItem>()
+            OrderId = Guid.NewGuid(),
+            CustomerId = 1,
+            OrderDate = DateTime.Now,
+            OrderItems = command.OrderItems.Select(item => new OrderItem
+            {
+                ProductId = item.ProductId,
+                Quantity = item.Quantity,
+                Price = item.Price
+            }).ToList()
         };
         
         var createdOrder = await orderService.CreateOrder(order, cancellationToken);
