@@ -1,9 +1,5 @@
 using Api.Consumer;
 using Api.Requests.CreateRequest;
-using AutoMapper;
-using Contracts.Mappings;
-using Contracts.Models;
-using Management.Infrastructure;
 using Management.Application;
 using Management.Persistence;
 using MassTransit;
@@ -36,10 +32,7 @@ builder.Services
 
 var connectionString = builder.Configuration.GetConnectionString("OrdersContext");
 
-builder.Services.AddInfrastructure(connectionString);
-builder.Services.AddAutoMapper(typeof(OrderProfileMapping));
-builder.Services.AddScoped<IOrderRepository, OrderRepository>();
-builder.Services.AddScoped<IOrderService, OrderService>();
+builder.Services.AddPersistence(connectionString);
 
 var app = builder.Build();
 

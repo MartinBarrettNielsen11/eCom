@@ -9,7 +9,10 @@ namespace Management.Application.CommandHandlers;
 
 public record CreateOrderCommand(ICollection<OrderItemModel> OrderItems) : IRequest<CommandResult<Guid>>;
 
-public class CreateOrderCommandHandler(IPublishEndpoint publishEndpoint, IOrderService orderService) 
+public class CreateOrderCommandHandler(
+    IPublishEndpoint publishEndpoint, 
+    IOrderService orderService,
+    IUnitOfWork unitOfWork) 
     : IRequestHandler<CreateOrderCommand, CommandResult<Guid>>
 {
     public async Task<CommandResult<Guid>> Handle(CreateOrderCommand command, CancellationToken cancellationToken)
@@ -28,6 +31,8 @@ public class CreateOrderCommandHandler(IPublishEndpoint publishEndpoint, IOrderS
         };
         
         var createdOrder = await orderService.CreateOrder(order, cancellationToken);
+
+        await unitOfWork.SaveChangesAsync(cancellationToken);
 
         await publishEndpoint.Publish(new OrderCreated()
         {
