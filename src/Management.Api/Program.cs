@@ -51,10 +51,7 @@ app.MapPost("/orders", async(
     ISender sender,
     CancellationToken cancellationToken) =>
     {
-        //var order = mapper.Map<Order>(model);
-
         var result = await sender.Send(request.ToCommand(), cancellationToken);
-
     })
     .Produces(StatusCodes.Status200OK)
     .Produces(StatusCodes.Status400BadRequest);
