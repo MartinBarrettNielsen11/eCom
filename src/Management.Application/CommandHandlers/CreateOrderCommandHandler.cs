@@ -1,17 +1,26 @@
 ﻿using Contracts.Events;
+using Domain.Entities;
 using Management.Application.Results;
 using MassTransit;
 using MediatR;
 
 namespace Management.Application.CommandHandlers;
 
-public record CreateOrderCommand(Guid OrderId, int CustomerId, DateTime OrderDate) : IRequest<CommandResult<EmptyResult>>;
+public record CreateOrderCommand(Guid OrderId, int CustomerId, DateTime OrderDate) : IRequest<CommandResult<Guid>>;
 
 public class CreateOrderCommandHandler(IPublishEndpoint publishEndpoint, IOrderService orderService) 
-    : IRequestHandler<CreateOrderCommand, CommandResult<EmptyResult>>
+    : IRequestHandler<CreateOrderCommand, CommandResult<Guid>>
 {
-    public async Task<CommandResult<EmptyResult>> Handle(CreateOrderCommand command, CancellationToken cancellationToken)
+    public async Task<CommandResult<Guid>> Handle(CreateOrderCommand command, CancellationToken cancellationToken)
     {
+        var order = new Order
+        {
+            OrderId = command.OrderId,
+            CustomerId = command.CustomerId,
+            OrderDate = command.OrderDate,
+            OrderItems = new List<OrderItem>()
+        };
+        
         var createdOrder = await orderService.CreateOrder(order, cancellationToken);
 
         await publishEndpoint.Publish(new OrderCreated()
@@ -25,8 +34,7 @@ public class CreateOrderCommandHandler(IPublishEndpoint publishEndpoint, IOrderS
             context.Headers.Set("header-v1", "header-v1-value");
             context.TimeToLive = TimeSpan.FromSeconds(30);
         }, cancellationToken);
-        
-        
-        return _requestHandlerImplementation.Handle(request, cancellationToken);
+
+        return CommandResult.Success(createdOrder.OrderId);
     }
 }

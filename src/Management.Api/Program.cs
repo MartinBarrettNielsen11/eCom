@@ -1,4 +1,5 @@
 using Api.Consumer;
+using Api.Requests.CreateRequest;
 using AutoMapper;
 using Contracts.Mappings;
 using Contracts.Models;
@@ -44,14 +45,13 @@ var app = builder.Build();
 
 app.UseHttpsRedirection();
 
-
 app.MapPost("/orders", async(
-    [FromBody] OrderModel request,
-    IMapper mapper,
+    [FromBody] CreateOrderRequest request,
     ISender sender,
     CancellationToken cancellationToken) =>
     {
         var result = await sender.Send(request.ToCommand(), cancellationToken);
+        return result.Result;
     })
     .Produces(StatusCodes.Status200OK)
     .Produces(StatusCodes.Status400BadRequest);
