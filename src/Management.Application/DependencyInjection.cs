@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Management.Application.notSure;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Management.Application;
 
@@ -9,6 +10,6 @@ public static class DependencyInjection
         return services.AddMediatR(cfg =>
         {
             cfg.RegisterServicesFromAssembly(ApplicationAssembly.Get());
-        });
+        }).AddScoped<IDateTimeProvider, DateTimeProvider>();
     }
 }

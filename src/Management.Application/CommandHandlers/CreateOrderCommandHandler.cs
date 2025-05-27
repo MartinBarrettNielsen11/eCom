@@ -1,6 +1,7 @@
 ﻿using Contracts.Events;
 using Contracts.Models;
 using Domain.Entities;
+using Management.Application.notSure;
 using Management.Application.Results;
 using MassTransit;
 using MediatR;
@@ -12,6 +13,7 @@ public record CreateOrderCommand(ICollection<OrderItemModel> OrderItems) : IRequ
 public class CreateOrderCommandHandler(
     IPublishEndpoint publishEndpoint, 
     IOrderService orderService,
+    IDateTimeProvider dateTimeProvider,
     IUnitOfWork unitOfWork) 
     : IRequestHandler<CreateOrderCommand, CommandResult<Guid>>
 {
@@ -21,7 +23,7 @@ public class CreateOrderCommandHandler(
         {
             OrderId = Guid.NewGuid(),
             CustomerId = 1,
-            OrderDate = DateTime.Now,
+            OrderDate = dateTimeProvider.UtcNow,
             OrderItems = command.OrderItems.Select(item => new OrderItem
             {
                 ProductId = item.ProductId,
