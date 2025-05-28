@@ -1,6 +1,17 @@
-@Api_HostAddress = http://localhost:5245
+@api_host = http://localhost:5245
 
-GET {{Api_HostAddress}}/weatherforecast/
+### Create Order
+POST {{api_host}}/orders
+Content-Type: application/json
 Accept: application/json
 
-###
+{
+  "customerId": 1,
+  "orderItems": [
+    {
+      "productId": 1,
+      "quantity": 1,
+      "price": 1.0
+    }
+  ]
+}
