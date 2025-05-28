@@ -10,7 +10,7 @@ public static class DependencyInjection
             .AddMediator(opts =>
             {
                 opts.ServiceLifetime = ServiceLifetime.Transient;
-                opts.Assemblies = [ApplicationAssembly.Get()];
+                opts.Assemblies = [typeof(ApplicationAssembly)];
                 opts.Namespace = "Mediator.SourceGenerator";
                 opts.GenerateTypesAsInternal = true;
             })

@@ -18,6 +18,7 @@ public class CreateOrderCommandHandler(
 {
     public async ValueTask<CommandResult<Guid>> Handle(CreateOrderCommand command, CancellationToken cancellationToken)
     {
+        // TO-DO: Use riok/mapperly for source generated mapping
         var order = new Order
         {
             OrderId = Guid.NewGuid(),
