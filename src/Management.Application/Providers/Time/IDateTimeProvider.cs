@@ -1,4 +1,4 @@
-﻿namespace Management.Application.notSure;
+﻿namespace Management.Application.Providers.Time;
 
 /// <summary>
 ///     Interface for mocking the current UTC date and time.
