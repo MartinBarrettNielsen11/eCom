@@ -1,6 +1,4 @@
-﻿using Microsoft.Extensions.Logging;
-
-namespace Management.Application.notSure;
+﻿namespace Management.Application.notSure;
 
 /// <summary>
 ///     Interface for mocking the current UTC date and time.

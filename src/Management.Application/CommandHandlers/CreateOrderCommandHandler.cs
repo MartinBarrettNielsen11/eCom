@@ -36,7 +36,7 @@ public class CreateOrderCommandHandler(
 
         await unitOfWork.SaveChangesAsync(cancellationToken);
 
-        await publishEndpoint.Publish(new OrderCreated()
+        await publishEndpoint.Publish(new OrderCreated
         {
             CreatedAt = createdOrder.OrderDate, 
             Id = createdOrder.Id,
