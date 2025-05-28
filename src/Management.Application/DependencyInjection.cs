@@ -5,11 +5,8 @@ namespace Management.Application;
 
 public static class DependencyInjection
 {
-    public static IServiceCollection AddApplication(this IServiceCollection services)
-    {
-        return services.AddMediatR(cfg =>
-        {
-            cfg.RegisterServicesFromAssembly(ApplicationAssembly.Get());
-        }).AddScoped<IDateTimeProvider, DateTimeProvider>();
-    }
+    public static IServiceCollection AddApplication(this IServiceCollection services) =>
+        services
+            .AddMediator(options => options.ServiceLifetime = ServiceLifetime.Transient)
+            .AddScoped<IDateTimeProvider, DateTimeProvider>();
 }

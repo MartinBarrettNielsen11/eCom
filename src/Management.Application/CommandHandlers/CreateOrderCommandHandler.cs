@@ -4,7 +4,7 @@ using Domain.Entities;
 using Management.Application.notSure;
 using Management.Application.Results;
 using MassTransit;
-using MediatR;
+using Mediator;
 
 namespace Management.Application.CommandHandlers;
 
@@ -16,7 +16,7 @@ public class CreateOrderCommandHandler(
     IDateTimeProvider dateTimeProvider,
     IUnitOfWork unitOfWork) : IRequestHandler<CreateOrderCommand, CommandResult<Guid>>
 {
-    public async Task<CommandResult<Guid>> Handle(CreateOrderCommand command, CancellationToken cancellationToken)
+    public async ValueTask<CommandResult<Guid>> Handle(CreateOrderCommand command, CancellationToken cancellationToken)
     {
         var order = new Order
         {

@@ -3,7 +3,7 @@ using Api.Requests.CreateRequest;
 using Management.Application;
 using Management.Persistence;
 using MassTransit;
-using MediatR;
+using Mediator;
 using Microsoft.AspNetCore.Mvc;
 using Scalar.AspNetCore;
 
@@ -27,23 +27,21 @@ builder.Services.AddMassTransit(x =>
     });
 });
 
-builder.Services
-    .AddApplication();
-
 var connectionString = builder.Configuration.GetConnectionString("OrdersContext");
 
-builder.Services.AddPersistence(connectionString);
+builder.Services
+    .AddApplication()
+    .AddPersistence(connectionString);
 
 var app = builder.Build();
 
 app.UseHttpsRedirection();
 
 app.MapPost("/orders", async(
-    [FromBody] CreateOrderRequest request,
-    ISender sender,
+    [FromBody] CreateOrderRequest request, IMediator mediator,
     CancellationToken cancellationToken) =>
     {
-        var result = await sender.Send(request.ToCommand(), cancellationToken);
+        var result = await mediator.Send(request.ToCommand(), cancellationToken);
         return result.Result;
     })
     .Produces(StatusCodes.Status200OK)
