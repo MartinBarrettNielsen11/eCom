@@ -8,21 +8,20 @@ using MediatR;
 
 namespace Management.Application.CommandHandlers;
 
-public record CreateOrderCommand(ICollection<OrderItemModel> OrderItems) : IRequest<CommandResult<Guid>>;
+public record CreateOrderCommand(int CustomerId, ICollection<OrderItemModel> OrderItems) : IRequest<CommandResult<Guid>>;
 
 public class CreateOrderCommandHandler(
     IPublishEndpoint publishEndpoint, 
     IOrderService orderService,
     IDateTimeProvider dateTimeProvider,
-    IUnitOfWork unitOfWork) 
-    : IRequestHandler<CreateOrderCommand, CommandResult<Guid>>
+    IUnitOfWork unitOfWork) : IRequestHandler<CreateOrderCommand, CommandResult<Guid>>
 {
     public async Task<CommandResult<Guid>> Handle(CreateOrderCommand command, CancellationToken cancellationToken)
     {
         var order = new Order
         {
             OrderId = Guid.NewGuid(),
-            CustomerId = 1,
+            CustomerId = command.CustomerId,
             OrderDate = dateTimeProvider.UtcNow,
             OrderItems = command.OrderItems.Select(item => new OrderItem
             {
