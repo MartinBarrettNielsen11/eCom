@@ -1,6 +1,7 @@
 ﻿using Contracts.Events;
 using Contracts.Models;
 using Domain.Entities;
+using Management.Application.MappersV2;
 using Management.Application.Providers.Time;
 using Management.Application.Results;
 using MassTransit;
@@ -14,11 +15,18 @@ public class CreateOrderCommandHandler(
     IPublishEndpoint publishEndpoint, 
     IOrderService orderService,
     IDateTimeProvider dateTimeProvider,
+    OrderMapper mapper,
     IUnitOfWork unitOfWork) : IRequestHandler<CreateOrderCommand, CommandResult<Guid>>
 {
     public async ValueTask<CommandResult<Guid>> Handle(CreateOrderCommand command, CancellationToken cancellationToken)
     {
-        // TO-DO: Use riok/mapperly for source generated mapping
+        var order = mapper.MapToOrder(command);
+        // TO-DO: Determine a way around this issue when using riok/mapperly
+        // old approach is used below
+        order.OrderId = Guid.NewGuid();
+        order.OrderDate = dateTimeProvider.UtcNow;
+
+        /*
         var order = new Order
         {
             OrderId = Guid.NewGuid(),
@@ -31,6 +39,7 @@ public class CreateOrderCommandHandler(
                 Price = item.Price
             }).ToList()
         };
+        */
         
         var createdOrder = await orderService.CreateOrder(order, cancellationToken);
 
