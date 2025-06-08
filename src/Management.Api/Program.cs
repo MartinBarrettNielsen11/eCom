@@ -1,3 +1,4 @@
+using System.Configuration;
 using Api.Consumer;
 using Api.Requests.CreateRequest;
 using Management.Application;
@@ -15,7 +16,14 @@ builder.Host.UseDefaultServiceProvider((_, options) =>
         options.ValidateOnBuild = true;
     }
 );
-    
+
+var tbd = new ConfigurationBuilder()
+    .SetBasePath(Directory.GetCurrentDirectory())
+    .AddJsonFile("appsettings.json", optional: true)
+    .AddUserSecrets<Program>();
+
+IConfiguration config = tbd.Build();
+
 builder.Services.AddOpenApi();
 
 builder.Services.AddMassTransit(x =>

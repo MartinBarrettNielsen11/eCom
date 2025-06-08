@@ -16,6 +16,7 @@
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.4"/>
+        <PackageReference Include="Microsoft.Azure.Cosmos" Version="3.52.0-preview.0" />
         <PackageReference Include="Microsoft.EntityFramework.SqlServer" Version="6.5.1" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Cosmos" Version="9.0.5" />
         <PackageReference Include="Microsoft.Extensions.Configuration" Version="10.0.0-preview.5.25277.114" />
