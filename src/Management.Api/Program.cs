@@ -34,19 +34,6 @@ var db = client.GetDatabase("test-db");
 
 var container = db.GetContainer("container-1");
 
-// insert temp test obj
-var test = new Test()
-{
-    Name = "test-2"
-};
-
-ItemResponse<Test> response = await container.CreateItemAsync(test);
-
-Console.WriteLine($"{response.RequestCharge} RUs for this call");
-
-// have a look at this: https://henriquesd.medium.com/azure-cosmos-db-using-ef-core-with-a-nosql-database-in-a-net-web-api-fce11c5802bd
-
-
 builder.Services.AddOpenApi();
 
 builder.Services.AddMassTransit(x =>

@@ -1,7 +1,11 @@
-﻿namespace Domain.Entities;
+﻿using System.Text.Json.Serialization;
+using Newtonsoft.Json;
+
+namespace Domain.Entities;
 
 public class Order
 {
+    [JsonProperty(PropertyName = "id")]
     public int Id { get; set; }
     public Guid OrderId { get; set; }
     public int CustomerId { get; set; }

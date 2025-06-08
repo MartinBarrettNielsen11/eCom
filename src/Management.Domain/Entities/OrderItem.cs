@@ -1,9 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
+using Newtonsoft.Json;
 
 namespace Domain.Entities;
 
 public class OrderItem
 {
+    [JsonProperty(PropertyName = "id")]
     public int Id { get; set; }
     public int OrderId { get; set; }
     public int ProductId { get; set; }
