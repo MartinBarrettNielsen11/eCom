@@ -9,6 +9,7 @@
 
     <ItemGroup>
         <PackageReference Include="AutoMapper" Version="14.0.0" />
+        <PackageReference Include="Azure.Identity" Version="1.14.0" />
         <PackageReference Include="MassTransit.RabbitMQ" Version="8.4.1" />
         <PackageReference Include="Mediator.Abstractions" Version="3.0.0-preview.65" />
         <PackageReference Include="Mediator.SourceGenerator" Version="3.0.0-preview.65">

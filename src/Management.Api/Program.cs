@@ -6,6 +6,7 @@ using Management.Persistence;
 using MassTransit;
 using Mediator;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Azure.Cosmos;
 using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -23,6 +24,11 @@ var tbd = new ConfigurationBuilder()
     .AddUserSecrets<Program>();
 
 IConfiguration config = tbd.Build();
+
+var client = new CosmosClient(
+    config.GetValue<string>("CosmosDb:Endpoint"),
+    config.GetValue<string>("CosmosDb:PrimaryKey")
+);
 
 builder.Services.AddOpenApi();
 
