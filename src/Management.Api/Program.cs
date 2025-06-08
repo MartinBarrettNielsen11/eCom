@@ -1,6 +1,7 @@
 using System.Configuration;
 using Api.Consumer;
 using Api.Requests.CreateRequest;
+using Domain.Entities;
 using Management.Application;
 using Management.Persistence;
 using MassTransit;
@@ -20,15 +21,31 @@ builder.Host.UseDefaultServiceProvider((_, options) =>
 
 var tbd = new ConfigurationBuilder()
     .SetBasePath(Directory.GetCurrentDirectory())
-    .AddJsonFile("appsettings.json", optional: true)
+    //.AddJsonFile("appsettings.json", optional: true)
     .AddUserSecrets<Program>();
 
 IConfiguration config = tbd.Build();
 
-var client = new CosmosClient(
-    config.GetValue<string>("CosmosDb:Endpoint"),
-    config.GetValue<string>("CosmosDb:PrimaryKey")
-);
+
+var client = new CosmosClient("https://maazincodes.documents.azure.com:443/",
+    "7zKaoq24jzMBSMBdQpYiHokKOhh1LB0TSxQDGBjR9OvdoZLaBZT0O3Nd5YCeZL6gU72SkKE2tvLXACDbPI2tdA==");
+
+var db = client.GetDatabase("test-db");
+
+var container = db.GetContainer("container-1");
+
+// insert temp test obj
+var test = new Test()
+{
+    Name = "test-2"
+};
+
+ItemResponse<Test> response = await container.CreateItemAsync(test);
+
+Console.WriteLine($"{response.RequestCharge} RUs for this call");
+
+// have a look at this: https://henriquesd.medium.com/azure-cosmos-db-using-ef-core-with-a-nosql-database-in-a-net-web-api-fce11c5802bd
+
 
 builder.Services.AddOpenApi();
 
