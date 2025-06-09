@@ -25,6 +25,7 @@ public class OrderContext(DbContextOptions<OrderContext> options) :
 
         modelBuilder.Entity<Customer>(entity =>
         {
+            entity.Property(x => x.Id).ToJsonProperty("id").HasConversion<string>().ValueGeneratedNever();
             entity.ToContainer("container-1");
             entity.HasPartitionKey(x => x.Id);
             entity.HasKey(x => x.Id);
@@ -33,6 +34,7 @@ public class OrderContext(DbContextOptions<OrderContext> options) :
         
         modelBuilder.Entity<Order>(entity =>
         {
+            entity.Property(x => x.Id).ToJsonProperty("id").HasConversion<string>().ValueGeneratedNever();
             entity.ToContainer("container-1");
             entity.HasPartitionKey(x => x.Id);
             entity.HasKey(x => x.Id);
@@ -41,6 +43,7 @@ public class OrderContext(DbContextOptions<OrderContext> options) :
 
         modelBuilder.Entity<OrderItem>(entity =>
         {
+            entity.Property(x => x.Id).ToJsonProperty("id").HasConversion<string>().ValueGeneratedNever();
             entity.ToContainer("container-1");
             entity.HasPartitionKey(x => x.Id);
             entity.HasKey(x => x.Id);

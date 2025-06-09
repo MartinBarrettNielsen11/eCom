@@ -5,7 +5,8 @@ namespace Domain.Entities;
 
 public class Customer
 {
-    [JsonPropertyName("id")]
+    [JsonPropertyName("id")] // System.Text.Json
+    [JsonProperty("id")]     // Newtonsoft
     public int Id { get; set; }
     public string Name { get; set; }
     public string Email { get; set; }
@@ -14,5 +15,4 @@ public class Customer
     public ICollection<Order> Orders { get; set; }
 
     public string Discriminator { get; set; } = "Customer";
-    public string PartitionKeyPath { get; set; } = "id";
 }

@@ -6,7 +6,8 @@ namespace Domain.Entities;
 
 public class OrderItem
 {
-    [JsonPropertyName("id")]
+    [JsonPropertyName("id")] // System.Text.Json
+    [JsonProperty("id")]     // Newtonsoft
     public int Id { get; set; }
     public int OrderId { get; set; }
     public int ProductId { get; set; }
@@ -18,5 +19,4 @@ public class OrderItem
     public Order Order { get; set; }
 
     public string Discriminator { get; set; } = "OrderItem";
-    public string PartitionKeyPath { get; set; } = "id";
 }
