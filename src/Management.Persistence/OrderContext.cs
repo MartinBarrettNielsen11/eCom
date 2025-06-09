@@ -1,6 +1,7 @@
 ﻿using Domain.Entities;
 using Management.Application;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 
 namespace Management.Persistence;
 
@@ -11,6 +12,12 @@ public class OrderContext(DbContextOptions<OrderContext> options) :
     public DbSet<Order> Orders { get; set; }
     public DbSet<OrderItem> OrderItems { get; set; }
 
+    // To-Do: Remove this suppression of synchronous I/O for Cosmos db. Should not stay lng temr.
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        optionsBuilder.ConfigureWarnings(w => w.Ignore(CosmosEventId.SyncNotSupported));
+    }
+    
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.HasAutoscaleThroughput(1000);
@@ -19,7 +26,8 @@ public class OrderContext(DbContextOptions<OrderContext> options) :
         modelBuilder.Entity<Customer>(entity =>
         {
             entity.ToContainer("container-1");
-            entity.HasPartitionKey(x => x.Id);
+            //entity.HasPartitionKey(x => x.Id);
+            entity.HasPartitionKey(x => x.PartitionKeyPath);
             entity.HasKey(x => x.Id);
             entity.HasDiscriminator<string>(x => x.Discriminator).HasValue("Customer");
         });
@@ -27,7 +35,9 @@ public class OrderContext(DbContextOptions<OrderContext> options) :
         modelBuilder.Entity<Order>(entity =>
         {
             entity.ToContainer("container-1");
-            entity.HasPartitionKey(x => x.Id);
+            //entity.HasPartitionKey(x => x.Id);
+            entity.HasPartitionKey(x => x.PartitionKeyPath);
+            //entity.HasPartitionKey("/id");
             entity.HasKey(x => x.Id);
             entity.HasDiscriminator<string>(x => x.Discriminator).HasValue("Order");
         });
@@ -35,7 +45,9 @@ public class OrderContext(DbContextOptions<OrderContext> options) :
         modelBuilder.Entity<OrderItem>(entity =>
         {
             entity.ToContainer("container-1");
-            entity.HasPartitionKey(x => x.Id);
+            //entity.HasPartitionKey(x => x.Id);
+            entity.HasPartitionKey(x => x.PartitionKeyPath);
+            //entity.HasPartitionKey("/id");
             entity.HasKey(x => x.Id);
             entity.HasDiscriminator<string>(x => x.Discriminator).HasValue("OrderItem");
         });

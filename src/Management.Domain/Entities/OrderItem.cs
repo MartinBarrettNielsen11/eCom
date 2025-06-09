@@ -17,4 +17,5 @@ public class OrderItem
     public Order Order { get; set; }
 
     public string Discriminator { get; set; } = "OrderItem";
+    public string PartitionKeyPath { get; set; } = "id";
 }

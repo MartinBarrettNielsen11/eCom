@@ -73,10 +73,20 @@ app.MapScalarApiReference(options =>
     options.Theme = ScalarTheme.Laserwave;
 }).AllowAnonymous();
 
-using (var serviceScope = app.Services.GetRequiredService<IServiceScopeFactory>().CreateScope())
+// add optional indexing policy, TTL, etc. here.
+var containerProperties = new ContainerProperties
 {
-    serviceScope.ServiceProvider.GetService<OrderContext>()!.Database.EnsureCreated();
-}
+    Id = "container-1",
+    PartitionKeyPath = "/id",
+    // Optional indexingPolicy, default TTL, etc. can go here
+};
+
+// Try create container with specified config
+// Verify setup n azure portal and set autoscale/manual RU's accordingly.
+await db.CreateContainerIfNotExistsAsync(
+    containerProperties,
+    throughput: 1000 // autoscale or manual RU/s
+);
 
 app.Run();
 

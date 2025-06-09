@@ -25,6 +25,7 @@ public class CreateOrderCommandHandler(
         // old approach is used below
         order.OrderId = Guid.NewGuid();
         order.OrderDate = dateTimeProvider.UtcNow;
+        order.Id = 22;
 
         /*
         var order = new Order

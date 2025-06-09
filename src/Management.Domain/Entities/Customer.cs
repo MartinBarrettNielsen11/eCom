@@ -13,4 +13,5 @@ public class Customer
     public ICollection<Order> Orders { get; set; }
 
     public string Discriminator { get; set; } = "Customer";
+    public string PartitionKeyPath { get; set; } = "id";
 }
