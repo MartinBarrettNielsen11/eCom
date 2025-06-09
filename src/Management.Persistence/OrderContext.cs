@@ -15,10 +15,34 @@ public class OrderContext(DbContextOptions<OrderContext> options) :
     {
         modelBuilder.HasAutoscaleThroughput(1000);
         modelBuilder.HasDefaultContainer("container-1");
+
+        modelBuilder.Entity<Customer>(entity =>
+        {
+            entity.ToContainer("container-1");
+            entity.HasPartitionKey(x => x.Id);
+            entity.HasKey(x => x.Id);
+            entity.HasDiscriminator<string>(x => x.Discriminator).HasValue("Customer");
+        });
         
+        modelBuilder.Entity<Order>(entity =>
+        {
+            entity.ToContainer("container-1");
+            entity.HasPartitionKey(x => x.Id);
+            entity.HasKey(x => x.Id);
+            entity.HasDiscriminator<string>(x => x.Discriminator).HasValue("Order");
+        });
+
+        modelBuilder.Entity<OrderItem>(entity =>
+        {
+            entity.ToContainer("container-1");
+            entity.HasPartitionKey(x => x.Id);
+            entity.HasKey(x => x.Id);
+            entity.HasDiscriminator<string>(x => x.Discriminator).HasValue("OrderItem");
+        });
+        
+
         /** TO-DO **/
-        // have a look at this: https://henriquesd.medium.com/azure-cosmos-db-using-ef-core-with-a-nosql-database-in-a-net-web-api-fce11c5802bd
-        //  have a look at this: https://www.youtube.com/watch?v=ihFpgzDowcM&t=189s
+        // have a look at this: https://henriquesd.medium.com/azure-cosmos-db-using-ef-core-with-a-nosql-database-in-a-net-web-api-fce11c5802bd}
     }
 }
 

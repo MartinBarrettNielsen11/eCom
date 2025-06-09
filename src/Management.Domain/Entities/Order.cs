@@ -14,4 +14,6 @@ public class Order
 
     public Customer Customer { get; set; }
     public ICollection<OrderItem> OrderItems { get; set; }
+
+    public string Discriminator { get; set; } = "Orders";
 }
