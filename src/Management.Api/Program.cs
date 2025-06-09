@@ -1,7 +1,5 @@
-using System.Configuration;
 using Api.Consumer;
 using Api.Requests.CreateRequest;
-using Domain.Entities;
 using Management.Application;
 using Management.Persistence;
 using MassTransit;
@@ -19,12 +17,10 @@ builder.Host.UseDefaultServiceProvider((_, options) =>
     }
 );
 
-var tbd = new ConfigurationBuilder()
+var config = new ConfigurationBuilder()
     .SetBasePath(Directory.GetCurrentDirectory())
-    //.AddJsonFile("appsettings.json", optional: true)
-    .AddUserSecrets<Program>();
-
-IConfiguration config = tbd.Build();
+    .AddUserSecrets<Program>() // Ensures secret.json is included
+    .Build();
 
 var cosmosClientOptions = new CosmosClientOptions()
 {
@@ -32,13 +28,14 @@ var cosmosClientOptions = new CosmosClientOptions()
     MaxRetryAttemptsOnRateLimitedRequests = 0 // disable retries
 };
 
-var client = new CosmosClient("https://maazincodes.documents.azure.com:443/",
-    "7zKaoq24jzMBSMBdQpYiHokKOhh1LB0TSxQDGBjR9OvdoZLaBZT0O3Nd5YCeZL6gU72SkKE2tvLXACDbPI2tdA==",
-    cosmosClientOptions);
+var endpoint = config["Cosmos:Endpoint"];
+var primaryKey = config["Cosmos:PrimaryKey"];
+var databaseId = config["Cosmos:Database"];
+var containerId = config["Cosmos:Container"];
 
-var db = client.GetDatabase("test-db");
+var client = new CosmosClient(endpoint, primaryKey, cosmosClientOptions);
 
-var container = db.GetContainer("container-1");
+var db = client.GetDatabase(databaseId);
 
 builder.Services.AddOpenApi();
 
@@ -82,7 +79,7 @@ app.MapScalarApiReference(options =>
 // add optional indexing policy, TTL, etc. here.
 var containerProperties = new ContainerProperties
 {
-    Id = "container-1",
+    Id = containerId,
     PartitionKeyPath = "/id",
     // Optional indexingPolicy, default TTL, etc. can go here
 };
