@@ -44,6 +44,8 @@ public class CreateOrderCommandHandler(
         
         var createdOrder = await orderService.CreateOrder(order, cancellationToken);
 
+        //disable Azure's resilience- like pipeline with backoff. 
+        // it is annoying to wait for to get errors bacck.
         await unitOfWork.SaveChangesAsync(cancellationToken);
 
         await publishEndpoint.Publish(new OrderCreated

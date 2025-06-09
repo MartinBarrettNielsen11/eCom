@@ -26,8 +26,7 @@ public class OrderContext(DbContextOptions<OrderContext> options) :
         modelBuilder.Entity<Customer>(entity =>
         {
             entity.ToContainer("container-1");
-            //entity.HasPartitionKey(x => x.Id);
-            entity.HasPartitionKey(x => x.PartitionKeyPath);
+            entity.HasPartitionKey(x => x.Id);
             entity.HasKey(x => x.Id);
             entity.HasDiscriminator<string>(x => x.Discriminator).HasValue("Customer");
         });
@@ -35,9 +34,7 @@ public class OrderContext(DbContextOptions<OrderContext> options) :
         modelBuilder.Entity<Order>(entity =>
         {
             entity.ToContainer("container-1");
-            //entity.HasPartitionKey(x => x.Id);
-            entity.HasPartitionKey(x => x.PartitionKeyPath);
-            //entity.HasPartitionKey("/id");
+            entity.HasPartitionKey(x => x.Id);
             entity.HasKey(x => x.Id);
             entity.HasDiscriminator<string>(x => x.Discriminator).HasValue("Order");
         });
@@ -45,9 +42,7 @@ public class OrderContext(DbContextOptions<OrderContext> options) :
         modelBuilder.Entity<OrderItem>(entity =>
         {
             entity.ToContainer("container-1");
-            //entity.HasPartitionKey(x => x.Id);
-            entity.HasPartitionKey(x => x.PartitionKeyPath);
-            //entity.HasPartitionKey("/id");
+            entity.HasPartitionKey(x => x.Id);
             entity.HasKey(x => x.Id);
             entity.HasDiscriminator<string>(x => x.Discriminator).HasValue("OrderItem");
         });

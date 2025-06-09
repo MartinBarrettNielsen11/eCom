@@ -1,11 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 using Newtonsoft.Json;
 
 namespace Domain.Entities;
 
 public class OrderItem
 {
-    [JsonProperty(PropertyName = "id")]
+    [JsonPropertyName("id")]
     public int Id { get; set; }
     public int OrderId { get; set; }
     public int ProductId { get; set; }

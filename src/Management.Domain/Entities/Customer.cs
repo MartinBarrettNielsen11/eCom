@@ -1,10 +1,11 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
+using Newtonsoft.Json;
 
 namespace Domain.Entities;
 
 public class Customer
 {
-    [JsonProperty(PropertyName = "id")]
+    [JsonPropertyName("id")]
     public int Id { get; set; }
     public string Name { get; set; }
     public string Email { get; set; }
