@@ -1,6 +1,5 @@
 ﻿using Contracts.Events;
 using Contracts.Models;
-using Domain.Entities;
 using Management.Application.MappersV2;
 using Management.Application.Providers.Time;
 using Management.Application.Results;
