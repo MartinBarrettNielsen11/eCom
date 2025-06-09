@@ -26,9 +26,15 @@ var tbd = new ConfigurationBuilder()
 
 IConfiguration config = tbd.Build();
 
+var cosmosClientOptions = new CosmosClientOptions()
+{
+    ConnectionMode = ConnectionMode.Direct,
+    MaxRetryAttemptsOnRateLimitedRequests = 0 // disable retries
+};
 
 var client = new CosmosClient("https://maazincodes.documents.azure.com:443/",
-    "7zKaoq24jzMBSMBdQpYiHokKOhh1LB0TSxQDGBjR9OvdoZLaBZT0O3Nd5YCeZL6gU72SkKE2tvLXACDbPI2tdA==");
+    "7zKaoq24jzMBSMBdQpYiHokKOhh1LB0TSxQDGBjR9OvdoZLaBZT0O3Nd5YCeZL6gU72SkKE2tvLXACDbPI2tdA==",
+    cosmosClientOptions);
 
 var db = client.GetDatabase("test-db");
 

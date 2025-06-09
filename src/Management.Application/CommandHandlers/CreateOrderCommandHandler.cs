@@ -25,7 +25,7 @@ public class CreateOrderCommandHandler(
         // old approach is used below
         order.OrderId = Guid.NewGuid();
         order.OrderDate = dateTimeProvider.UtcNow;
-        order.Id = 22;
+        order.Id = new Random().Next();
 
         /*
         var order = new Order
@@ -43,9 +43,7 @@ public class CreateOrderCommandHandler(
         */
         
         var createdOrder = await orderService.CreateOrder(order, cancellationToken);
-
-        //disable Azure's resilience- like pipeline with backoff. 
-        // it is annoying to wait for to get errors bacck.
+        
         await unitOfWork.SaveChangesAsync(cancellationToken);
 
         await publishEndpoint.Publish(new OrderCreated
