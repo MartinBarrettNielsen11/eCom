@@ -23,7 +23,7 @@ public class CreateOrderCommandHandler(
         var order = mapper.MapToOrder(command);
         // TO-DO: Determine a way around this issue when using riok/mapperly
         // old approach is used below
-        order.OrderId = Guid.NewGuid();
+        order.OrderId = Guid.CreateVersion7();
         order.OrderDate = dateTimeProvider.UtcNow;
         order.Id = new Random().Next();
 
