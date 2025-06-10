@@ -43,7 +43,7 @@ public class CreateOrderCommandHandler(
         
         var createdOrder = await orderService.CreateOrder(order, cancellationToken);
         
-        await unitOfWork.SaveChangesAsync(cancellationToken);
+        //await unitOfWork.SaveChangesAsync(cancellationToken);
 
         await publishEndpoint.Publish(new OrderCreated
         {
@@ -56,7 +56,7 @@ public class CreateOrderCommandHandler(
             context.Headers.Set("header-v1", "header-v1-value");
             context.TimeToLive = TimeSpan.FromSeconds(30);
         }, cancellationToken);
-
+        
         return CommandResult.Success(createdOrder.OrderId);
     }
 }

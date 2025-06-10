@@ -59,9 +59,11 @@ var app = builder.Build();
 app.UseHttpsRedirection();
 
 app.MapPost("/orders", async(
-    [FromBody] CreateOrderRequest request, IMediator mediator,
+    [FromBody] CreateOrderRequest request, IMediator mediator, ISendEndpointProvider s,
     CancellationToken cancellationToken) =>
     {
+        var ss = await s.GetSendEndpoint(new Uri("queue:order-creation"));
+        await ss.Send(request);
         var result = await mediator.Send(request.ToCommand(), cancellationToken);
         return result.Result;
     })
