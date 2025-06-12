@@ -3,27 +3,19 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Management.Application;
 
-public class OrderRepository : IOrderRepository
+public class OrderRepository(IOrderContext context) : IOrderRepository
 {
-    private readonly IOrderContext _context;
-
-    public OrderRepository(IOrderContext context)
-    {
-        _context = context;
-    }
-
     public async Task<Order> CreateOrder(Order order)
     {
-        _context.Orders.Add(order);
+        context.Orders.Add(order);
         return order;
     }
 
     public async Task<Order?> GetOrderAsync(int id) =>
-        await _context.Orders
+        await context.Orders
             .Include(o => o.Customer)
             .Include(o => o.OrderItems)
             .FirstOrDefaultAsync(o => o.Id == id);
-
     
-    public async Task<bool> OrderExistsAsync(int id) => await _context.Orders.AnyAsync(e => e.Id == id);
+    public async Task<bool> OrderExistsAsync(int id) => await context.Orders.AnyAsync(e => e.Id == id);
 }

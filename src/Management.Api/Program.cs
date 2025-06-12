@@ -1,6 +1,5 @@
 using Api.Requests.CreateRequest;
 using Management.Application;
-using Management.Infrastructure.Consumer;
 using Management.Infrastructure.Messaging;
 using Management.Persistence;
 using MassTransit;
