@@ -1,6 +1,7 @@
-using Api.Consumer;
 using Api.Requests.CreateRequest;
 using Management.Application;
+using Management.Infrastructure.Consumer;
+using Management.Infrastructure.Messaging;
 using Management.Persistence;
 using MassTransit;
 using Mediator;
@@ -39,17 +40,9 @@ var db = client.GetDatabase(databaseId);
 
 builder.Services.AddOpenApi();
 
-builder.Services.AddMassTransit(x =>
-{
-    x.AddConsumer<OrderCreatedConsumer, OrderCreatedConsumerDefinition>();
-    x.UsingRabbitMq((context, cfg) =>
-    {
-        cfg.ConfigureEndpoints(context);
-    });
-});
-
 builder.Services
     .AddApplication()
+    .AddMessaging()
     .AddPersistence(builder.Configuration);
 
 var app = builder.Build();
