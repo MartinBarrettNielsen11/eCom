@@ -48,11 +48,9 @@ builder.Services.AddMassTransit(x =>
     });
 });
 
-var connectionString = builder.Configuration.GetConnectionString("OrdersContext");
-
 builder.Services
     .AddApplication()
-    .AddPersistence(connectionString);
+    .AddPersistence(builder.Configuration);
 
 var app = builder.Build();
 
