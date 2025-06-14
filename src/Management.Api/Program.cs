@@ -1,9 +1,7 @@
 using Api.Requests.CreateRequest;
-using Contracts.Events;
 using Management.Application;
 using Management.Infrastructure.Messaging;
 using Management.Persistence;
-using MassTransit;
 using Mediator;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.Cosmos;

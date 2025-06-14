@@ -15,4 +15,8 @@
       <ProjectReference Include="..\Management.Persistence\Management.Persistence.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Consumer\" />
+    </ItemGroup>
+
 </Project>

@@ -4,7 +4,7 @@ using Contracts.Events;
 using MassTransit;
 
 namespace AdminNotification.Worker;
-/*
+
 public class OrderCreatedNotification : IConsumer<OrderCreated>
 {
     public async Task Consume(ConsumeContext<OrderCreated> context)
@@ -12,4 +12,3 @@ public class OrderCreatedNotification : IConsumer<OrderCreated>
         Console.WriteLine($"Order created notification received for: {context.Message.OrderId}");
     }
 }
-*/

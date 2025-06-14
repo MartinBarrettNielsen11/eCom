@@ -9,14 +9,13 @@ public class Program
 {
     public static async Task Main(string[] args)
     {
-        //await CreateHostBuilder(args).Build().RunAsync();
+        await CreateHostBuilder(args).Build().RunAsync();
     }
 
     public static IHostBuilder CreateHostBuilder(string[] args) =>
         Host.CreateDefaultBuilder(args)
             .ConfigureServices((_, services) =>
             {
-                /*
                 services.AddMassTransit(x =>
                 {
                     x.SetKebabCaseEndpointNameFormatter();
@@ -25,8 +24,11 @@ public class Program
                     x.UsingRabbitMq((busRegistrationContext, cfg) =>
                     {
                         cfg.ConfigureEndpoints(busRegistrationContext);
+                        cfg.ReceiveEndpoint("order-created", e =>
+                        {
+                            e.ConfigureConsumer<OrderCreatedNotification>(busRegistrationContext);
+                        });
                     });
                 });
-                */
             });
 }
