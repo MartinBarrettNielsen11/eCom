@@ -1,4 +1,3 @@
-using System.Reflection;
 using System.Threading.Tasks;
 using AdminNotification.Worker.Consumers;
 using Microsoft.Extensions.Hosting;

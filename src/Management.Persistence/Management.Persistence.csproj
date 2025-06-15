@@ -7,13 +7,10 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Migrations\" />
-    </ItemGroup>
-
-    <ItemGroup>
       <ProjectReference Include="..\Contracts\Contracts.csproj" />
       <ProjectReference Include="..\Management.Application\Management.Application.csproj" />
       <ProjectReference Include="..\Management.Domain\Management.Domain.csproj" />
+      <ProjectReference Include="..\Management.Infrastructure\Management.Infrastructure.csproj" />
     </ItemGroup>
 
     <ItemGroup>

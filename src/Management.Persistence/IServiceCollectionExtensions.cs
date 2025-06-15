@@ -26,8 +26,11 @@ public static class IServiceCollectionExtensions
         
         services.AddScoped<IOrderContext>(sp => sp.GetRequiredService<OrderContext>());
         
+        // Handle potential circular dependency for this another time
+        /*
         services.AddScoped<IOrderRepository, OrderRepository>();
         services.AddScoped<IOrderService, OrderService>();
+        */
         services.AddScoped<IUnitOfWork, UnitOfWork>();
 
         return services;
