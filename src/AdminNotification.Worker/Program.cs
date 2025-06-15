@@ -1,5 +1,6 @@
 using System.Reflection;
 using System.Threading.Tasks;
+using AdminNotification.Worker.Consumers;
 using Microsoft.Extensions.Hosting;
 using MassTransit;
 
@@ -19,14 +20,13 @@ public class Program
                 services.AddMassTransit(x =>
                 {
                     x.SetKebabCaseEndpointNameFormatter();
-                    var entryAssembly = Assembly.GetEntryAssembly();
-                    x.AddConsumers(entryAssembly);
+                    x.AddConsumer(typeof(OrderCreatedNotificationConsumer), typeof(OrderCreatedNotificationConsumerDefinition));
                     x.UsingRabbitMq((busRegistrationContext, cfg) =>
                     {
                         cfg.ConfigureEndpoints(busRegistrationContext);
                         cfg.ReceiveEndpoint("order-created", e =>
                         {
-                            e.ConfigureConsumer<OrderCreatedNotification>(busRegistrationContext);
+                            e.ConfigureConsumer<OrderCreatedNotificationConsumer>(busRegistrationContext);
                         });
                     });
                 });

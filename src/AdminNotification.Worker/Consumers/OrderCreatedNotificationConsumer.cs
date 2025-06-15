@@ -5,7 +5,7 @@ using MassTransit;
 
 namespace AdminNotification.Worker;
 
-public class OrderCreatedNotification : IConsumer<OrderCreated>
+public class OrderCreatedNotificationConsumer : IConsumer<OrderCreated>
 {
     public async Task Consume(ConsumeContext<OrderCreated> context)
     {
