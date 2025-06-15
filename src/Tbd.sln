@@ -18,6 +18,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Management.Persistence", "M
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdminNotification.Worker", "AdminNotification.Worker\AdminNotification.Worker.csproj", "{B7F6CC8E-E050-4526-9CE6-A78C9BE7635C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderCreation.Worker", "OrderCreation.Worker\OrderCreation.Worker.csproj", "{AD71F498-9E47-492B-9FB5-FBC191A5E292}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BackgroundWorkers", "BackgroundWorkers", "{6F7F8A59-92F2-419E-9D98-3F340DF679F6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,6 +34,8 @@ Global
 		{328A7324-5BD1-4211-8139-AA488A2C6AEF} = {5D7246C5-EAC2-4E27-B433-AEE4AFD0357F}
 		{87C3FECD-CC3A-4EAB-80DD-81C9808A39D7} = {9F2B2922-1AC1-4B45-AFC7-AD8C21507EEC}
 		{ED45510A-CD1B-4CE7-A369-A7E3689DC2A3} = {5D7246C5-EAC2-4E27-B433-AEE4AFD0357F}
+		{B7F6CC8E-E050-4526-9CE6-A78C9BE7635C} = {6F7F8A59-92F2-419E-9D98-3F340DF679F6}
+		{AD71F498-9E47-492B-9FB5-FBC191A5E292} = {6F7F8A59-92F2-419E-9D98-3F340DF679F6}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{4C98EB3D-39C1-43C4-9529-27B040A1FD66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -60,5 +66,9 @@ Global
 		{B7F6CC8E-E050-4526-9CE6-A78C9BE7635C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B7F6CC8E-E050-4526-9CE6-A78C9BE7635C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B7F6CC8E-E050-4526-9CE6-A78C9BE7635C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD71F498-9E47-492B-9FB5-FBC191A5E292}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD71F498-9E47-492B-9FB5-FBC191A5E292}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD71F498-9E47-492B-9FB5-FBC191A5E292}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD71F498-9E47-492B-9FB5-FBC191A5E292}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
