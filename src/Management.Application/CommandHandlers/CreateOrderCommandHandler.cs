@@ -1,5 +1,6 @@
 ﻿using Contracts.Events;
 using Contracts.Models;
+using Domain.Entities;
 using Management.Application.MappersV2;
 using Management.Application.Providers.Time;
 using Management.Application.Results;
@@ -26,8 +27,8 @@ public class CreateOrderCommandHandler(
         order.OrderDate = dateTimeProvider.UtcNow;
         order.Id = new Random().Next();
 
-        /*
-        var order = new Order
+
+        var order2 = new Order
         {
             OrderId = Guid.NewGuid(),
             CustomerId = command.CustomerId,
@@ -39,11 +40,11 @@ public class CreateOrderCommandHandler(
                 Price = item.Price
             }).ToList()
         };
-        */
         
-        var createdOrder = await orderService.CreateOrder(order, cancellationToken);
         
-        //await unitOfWork.SaveChangesAsync(cancellationToken);
+        var createdOrder = await orderService.CreateOrder(order2, cancellationToken);
+        
+        await unitOfWork.SaveChangesAsync(cancellationToken);
 
         await publishEndpoint.Publish(new OrderCreated
         {
