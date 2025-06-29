@@ -8,7 +8,6 @@ namespace OrderCreation.Worker;
 
 public class CreateOrderConsumer(IOrderService orderService) : IConsumer<OrderModel>
 {
-
     public async Task Consume(ConsumeContext<OrderModel> context)
     {
         Console.WriteLine($"I got a command to create an order: {context.Message}");

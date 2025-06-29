@@ -18,19 +18,17 @@ public class CreateOrderCommandHandler(
     OrderMapper mapper,
     IUnitOfWork unitOfWork) : IRequestHandler<CreateOrderCommand, CommandResult<Guid>>
 {
-    public async ValueTask<CommandResult<Guid>> Handle(CreateOrderCommand command, CancellationToken cancellationToken)
+    public async ValueTask<CommandResult<Guid>> Handle(CreateOrderCommand command, 
+        CancellationToken cancellationToken)
     {
         var order = mapper.MapToOrder(command);
         // TO-DO: Determine a way around this issue when using riok/mapperly
         // old approach is used below
-        order.OrderId = Guid.CreateVersion7();
         order.OrderDate = dateTimeProvider.UtcNow;
-        order.Id = new Random().Next();
-
 
         var order2 = new Order
         {
-            OrderId = Guid.NewGuid(),
+            Id = order.Id,
             CustomerId = command.CustomerId,
             OrderDate = dateTimeProvider.UtcNow,
             OrderItems = command.OrderItems.Select(item => new OrderItem
@@ -50,7 +48,6 @@ public class CreateOrderCommandHandler(
         {
             CreatedAt = createdOrder.OrderDate, 
             Id = createdOrder.Id,
-            OrderId = createdOrder.OrderId,
             TotalAmount = createdOrder.OrderItems.Sum(p => p.Price * p.Quantity)
         }, context =>
         {
@@ -58,6 +55,6 @@ public class CreateOrderCommandHandler(
             context.TimeToLive = TimeSpan.FromSeconds(30);
         }, cancellationToken);
         
-        return CommandResult.Success(createdOrder.OrderId);
+        return CommandResult.Success(createdOrder.Id);
     }
 }

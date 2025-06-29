@@ -12,7 +12,7 @@ public class OrderContext(DbContextOptions<OrderContext> options) :
     public DbSet<Order> Orders { get; set; }
     public DbSet<OrderItem> OrderItems { get; set; }
 
-    // To-Do: Remove this suppression of synchronous I/O for Cosmos db. Should not stay lng temr.
+    // To-Do: Remove this suppression of synchronous I/O for Cosmos db. Should not stay long term.
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder.ConfigureWarnings(w => w.Ignore(CosmosEventId.SyncNotSupported));

@@ -8,8 +8,7 @@ public class OrderItem
 {
     [JsonPropertyName("id")] // System.Text.Json
     [JsonProperty("id")]     // Newtonsoft
-    public int Id { get; set; }
-    public int OrderId { get; set; }
+    public Guid Id { get; set; }
     public int ProductId { get; set; }
 
     public int Quantity { get; set; }
