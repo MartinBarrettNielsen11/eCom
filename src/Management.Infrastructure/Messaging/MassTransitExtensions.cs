@@ -1,6 +1,4 @@
-﻿using System.Reflection.PortableExecutable;
-using Management.Infrastructure.Consumer;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using MassTransit;
 
 namespace Management.Infrastructure.Messaging;

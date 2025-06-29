@@ -7,21 +7,21 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Contracts\Contracts.csproj" />
-      <ProjectReference Include="..\Management.Application\Management.Application.csproj" />
-      <ProjectReference Include="..\Management.Domain\Management.Domain.csproj" />
-      <ProjectReference Include="..\Management.Infrastructure\Management.Infrastructure.csproj" />
+        <ProjectReference Include="..\Contracts\Contracts.csproj" />
+        <ProjectReference Include="..\Management.Application\Management.Application.csproj" />
+        <ProjectReference Include="..\Management.Domain\Management.Domain.csproj" />
+        <ProjectReference Include="..\Management.Infrastructure\Management.Infrastructure.csproj" />
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="Azure.Identity" Version="1.14.0" />
-      <PackageReference Include="Microsoft.Azure.Cosmos" Version="3.52.0-preview.0" />
-      <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.5" />
-      <PackageReference Include="Microsoft.EntityFrameworkCore.Cosmos" Version="9.0.5" />
-      <PackageReference Include="Microsoft.Extensions.Configuration" Version="10.0.0-preview.5.25277.114" />
-      <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="10.0.0-preview.5.25277.114" />
-      <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="10.0.0-preview.5.25277.114" />
-      <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="10.0.0-preview.5.25277.114" />
+        <PackageReference Include="Azure.Identity" Version="1.14.0" />
+        <PackageReference Include="Microsoft.Azure.Cosmos" Version="3.52.0-preview.0" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.5" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Cosmos" Version="9.0.5" />
+        <PackageReference Include="Microsoft.Extensions.Configuration" Version="10.0.0-preview.5.25277.114" />
+        <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="10.0.0-preview.5.25277.114" />
+        <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="10.0.0-preview.5.25277.114" />
+        <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="10.0.0-preview.5.25277.114" />
     </ItemGroup>
-
+    
 </Project>

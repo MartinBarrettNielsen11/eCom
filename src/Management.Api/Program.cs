@@ -1,5 +1,5 @@
 using Api.Requests.CreateRequest;
-using Management.Application;
+using Management.Infrastructure;
 using Management.Infrastructure.Messaging;
 using Management.Persistence;
 using Mediator;
@@ -39,8 +39,7 @@ var db = client.GetDatabase(databaseId);
 builder.Services.AddOpenApi();
 
 builder.Services
-    .AddApplication()
-    .AddMessaging()
+    .AddServices()
     .AddPersistence(builder.Configuration);
 
 var app = builder.Build();
@@ -73,7 +72,7 @@ var containerProperties = new ContainerProperties
     // Optional indexingPolicy, default TTL, etc. can go here
 };
 
-// Try create container with specified config
+// Try to create container with specified config
 // Verify setup n azure portal and set autoscale/manual RU's accordingly.
 await db.CreateContainerIfNotExistsAsync(
     containerProperties,

@@ -15,4 +15,8 @@
       <Folder Include="Consumer\" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Management.Application\Management.Application.csproj" />
+    </ItemGroup>
+
 </Project>

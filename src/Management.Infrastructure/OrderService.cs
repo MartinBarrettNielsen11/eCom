@@ -1,15 +1,16 @@
 ﻿using Domain.Entities;
+using Management.Application;
 
-namespace Management.Application;
+namespace Management.Infrastructure;
 
 public class OrderService(IOrderRepository orderRepository) : IOrderService
 {
     public async Task<Order> CreateOrder(Order order, CancellationToken cancellationToken = default) =>
-        await orderRepository.CreateOrder(order);
+        await orderRepository.CreateOrder(order, cancellationToken);
 
-    public async Task<Order?> GetOrderAsync(int id, CancellationToken cancellationToken = default) =>
+    public async Task<Order?> GetOrderAsync(Guid id, CancellationToken cancellationToken = default) =>
         await orderRepository.GetOrderAsync(id);
 
-    public async Task<bool> OrderExistsAsync(int id, CancellationToken cancellationToken = default) =>
+    public async Task<bool> OrderExistsAsync(Guid id, CancellationToken cancellationToken = default) =>
         await orderRepository.OrderExistsAsync(id);
 }
