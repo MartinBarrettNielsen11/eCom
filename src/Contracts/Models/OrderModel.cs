@@ -1,6 +1,4 @@
-﻿using Domain.Entities;
-
-namespace Contracts.Models;
+﻿namespace Contracts.Models;
 
 public class OrderModel
 {
