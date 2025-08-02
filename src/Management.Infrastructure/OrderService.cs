@@ -1,7 +1,4 @@
-﻿using Domain.Entities;
-using Management.Application;
-
-namespace Management.Infrastructure;
+﻿namespace Management.Infrastructure;
 
 public class OrderService(IOrderRepository orderRepository) : IOrderService
 {

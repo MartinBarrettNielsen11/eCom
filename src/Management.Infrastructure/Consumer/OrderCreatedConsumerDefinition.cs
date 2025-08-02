@@ -1,6 +1,4 @@
-﻿using MassTransit;
-
-namespace Management.Infrastructure.Consumer;
+﻿namespace Management.Infrastructure.Consumer;
 
 public class OrderCreatedConsumerDefinition : ConsumerDefinition<OrderCreatedConsumer>
 {

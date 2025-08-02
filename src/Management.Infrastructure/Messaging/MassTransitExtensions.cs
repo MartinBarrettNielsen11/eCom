@@ -1,7 +1,4 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using MassTransit;
-
-namespace Management.Infrastructure.Messaging;
+﻿namespace Management.Infrastructure.Messaging;
 
 public static class MassTransitExtensions
 {
