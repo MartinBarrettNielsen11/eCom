@@ -1,9 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
-using Contracts.Events;
-using MassTransit;
-
-namespace AdminNotification.Worker.Consumers;
+﻿namespace AdminNotification.Worker.Consumers;
 
 public class OrderCreatedNotificationConsumer : IConsumer<OrderCreated>
 {

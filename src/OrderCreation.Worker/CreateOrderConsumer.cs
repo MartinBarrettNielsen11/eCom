@@ -1,10 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
-using Contracts.Models;
-using Management.Application;
-using MassTransit;
-
-namespace OrderCreation.Worker;
+﻿namespace OrderCreation.Worker;
 
 public class CreateOrderConsumer(IOrderService orderService) : IConsumer<OrderModel>
 {

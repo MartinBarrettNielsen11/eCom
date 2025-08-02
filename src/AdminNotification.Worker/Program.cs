@@ -1,8 +1,3 @@
-using System.Threading.Tasks;
-using AdminNotification.Worker.Consumers;
-using Microsoft.Extensions.Hosting;
-using MassTransit;
-
 namespace AdminNotification.Worker;
 
 public class Program

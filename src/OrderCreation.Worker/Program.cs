@@ -1,11 +1,3 @@
-using System.Reflection;
-using System.Threading.Tasks;
-using Management.Application;
-using Management.Infrastructure;
-using Microsoft.Extensions.Hosting;
-using MassTransit;
-using Microsoft.Extensions.DependencyInjection;
-
 namespace OrderCreation.Worker;
 
 public class Program

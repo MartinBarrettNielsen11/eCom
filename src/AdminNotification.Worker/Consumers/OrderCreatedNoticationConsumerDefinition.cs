@@ -1,7 +1,4 @@
-﻿using System;
-using MassTransit;
-
-namespace AdminNotification.Worker.Consumers;
+﻿namespace AdminNotification.Worker.Consumers;
 
 public class OrderCreatedNotificationConsumerDefinition : ConsumerDefinition<OrderCreatedNotificationConsumer>
 {
