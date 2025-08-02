@@ -1,7 +1,4 @@
-﻿using Domain.Entities;
-using Microsoft.EntityFrameworkCore;
-
-namespace Management.Application;
+﻿namespace Management.Application;
 
 public interface IOrderContext
 {

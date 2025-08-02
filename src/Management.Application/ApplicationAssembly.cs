@@ -1,6 +1,4 @@
-﻿using System.Reflection;
-
-namespace Management.Application;
+﻿namespace Management.Application;
 
 public static class ApplicationAssembly
 {

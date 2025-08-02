@@ -1,7 +1,4 @@
-﻿using Management.Application.MappersV2;
-using Microsoft.Extensions.DependencyInjection;
-
-namespace Management.Application;
+﻿namespace Management.Application;
 
 public static class DependencyInjection
 {
