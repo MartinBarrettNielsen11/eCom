@@ -1,6 +1,4 @@
-﻿using Management.Application;
-
-namespace Management.Persistence;
+﻿namespace Management.Persistence;
 
 internal sealed class UnitOfWork(OrderContext orderContext) : IUnitOfWork
 {
