@@ -2,8 +2,8 @@
 
 public class CosmosSettings
 {
-    public string Endpoint { get; init; } = default!;
-    public string PrimaryKey { get; init; } = default!;
-    public string Database { get; init; } = default!;
-    public string Container { get; init; } = default!;
+    public string Endpoint { get; init; } = null!;
+    public string PrimaryKey { get; init; } = null!;
+    public string Database { get; init; } = null!;
+    public string Container { get; init; } = null!;
 }

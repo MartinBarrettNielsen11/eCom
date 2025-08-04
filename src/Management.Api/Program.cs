@@ -16,12 +16,13 @@ builder.Host.UseDefaultServiceProvider((_, options) =>
     }
 );
 
+// to do: since switching to mac - be sure to handle the secret.json file
 var config = new ConfigurationBuilder()
     .SetBasePath(Directory.GetCurrentDirectory())
-    .AddUserSecrets<Program>() // Ensures secret.json is included
+    .AddUserSecrets<Program>()
     .Build();
 
-var cosmosClientOptions = new CosmosClientOptions()
+var clientOptions = new CosmosClientOptions()
 {
     ConnectionMode = ConnectionMode.Direct,
     MaxRetryAttemptsOnRateLimitedRequests = 0 // disable retries
@@ -32,9 +33,9 @@ var primaryKey = config["Cosmos:PrimaryKey"];
 var databaseId = config["Cosmos:Database"];
 var containerId = config["Cosmos:Container"];
 
-var client = new CosmosClient(endpoint, primaryKey, cosmosClientOptions);
+var client = new CosmosClient(endpoint, primaryKey, clientOptions);
 
-var db = client.GetDatabase(databaseId);
+var database = client.GetDatabase(databaseId);
 
 builder.Services.AddOpenApi();
 
@@ -47,7 +48,8 @@ var app = builder.Build();
 app.UseHttpsRedirection();
 
 app.MapPost("/orders", async(
-    [FromBody] CreateOrderRequest request, IMediator mediator,
+    [FromBody] CreateOrderRequest request, 
+    IMediator mediator,
     CancellationToken cancellationToken) =>
     {
         var result = await mediator.Send(request.ToCommand(), cancellationToken);
@@ -64,7 +66,6 @@ app.MapScalarApiReference(options =>
     options.Theme = ScalarTheme.Laserwave;
 }).AllowAnonymous();
 
-// add optional indexing policy, TTL, etc. here.
 var containerProperties = new ContainerProperties
 {
     Id = containerId,
@@ -74,7 +75,7 @@ var containerProperties = new ContainerProperties
 
 // Try to create container with specified config
 // Verify setup n azure portal and set autoscale/manual RU's accordingly.
-await db.CreateContainerIfNotExistsAsync(
+await database.CreateContainerIfNotExistsAsync(
     containerProperties,
     throughput: 1000 // autoscale or manual RU/s
 );
