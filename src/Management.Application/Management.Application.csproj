@@ -23,7 +23,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="QueryHandlers\" />
+      <Folder Include="Order\Handlers\Query\" />
     </ItemGroup>
 
 </Project>
