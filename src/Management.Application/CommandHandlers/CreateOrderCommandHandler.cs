@@ -11,15 +11,15 @@ namespace Management.Application.CommandHandlers;
 
 public record CreateOrderCommand(int CustomerId, ICollection<OrderItemModel> OrderItems) : IRequest<CommandResult<Guid>>;
 
-public class CreateOrderCommandHandler(
+public sealed class CreateOrderCommandHandler(
     IPublishEndpoint publishEndpoint, 
     IOrderService orderService,
     IDateTimeProvider dateTimeProvider,
     OrderMapper mapper,
     IUnitOfWork unitOfWork) : IRequestHandler<CreateOrderCommand, CommandResult<Guid>>
 {
-    public async ValueTask<CommandResult<Guid>> Handle(CreateOrderCommand command, 
-        CancellationToken cancellationToken)
+    public async ValueTask<CommandResult<Guid>> Handle(
+        CreateOrderCommand command, CancellationToken cancellationToken)
     {
         var order = mapper.MapToOrder(command);
         // TO-DO: Determine a way around this issue when using riok/mapperly
