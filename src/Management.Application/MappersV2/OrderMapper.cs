@@ -1,9 +1,4 @@
-﻿using Contracts.Models;
-using Domain.Entities;
-using Management.Application.CommandHandlers;
-using Riok.Mapperly.Abstractions;
-
-namespace Management.Application.MappersV2;
+﻿namespace Management.Application.MappersV2;
 
 [Mapper]
 public partial class OrderMapper

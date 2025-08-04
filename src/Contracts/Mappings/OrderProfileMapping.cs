@@ -1,8 +1,4 @@
-﻿using AutoMapper;
-using Contracts.Models;
-using Domain.Entities;
-
-namespace Contracts.Mappings;
+﻿namespace Contracts.Mappings;
 
 public class OrderProfileMapping : Profile
 {

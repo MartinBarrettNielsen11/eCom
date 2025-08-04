@@ -1,6 +1,4 @@
-﻿using Domain.Entities;
-
-namespace Management.Application;
+﻿namespace Management.Application;
 
 public interface IOrderService
 {

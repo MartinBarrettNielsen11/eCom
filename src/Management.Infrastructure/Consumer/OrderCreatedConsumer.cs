@@ -1,7 +1,4 @@
-﻿using Contracts.Events;
-using MassTransit;
-
-namespace Management.Infrastructure.Consumer;
+﻿namespace Management.Infrastructure.Consumer;
 
 public class OrderCreatedConsumer : IConsumer<OrderCreated>
 {

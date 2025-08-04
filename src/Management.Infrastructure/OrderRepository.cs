@@ -1,8 +1,4 @@
-﻿using Domain.Entities;
-using Management.Application;
-using Microsoft.EntityFrameworkCore;
-
-namespace Management.Infrastructure;
+﻿namespace Management.Infrastructure;
 
 public class OrderRepository(IOrderContext context) : IOrderRepository
 {

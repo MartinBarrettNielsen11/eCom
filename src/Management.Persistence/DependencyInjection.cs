@@ -1,12 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using Management.Application;
-using Management.Infrastructure;
-using Management.Persistence.Configurations;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-
-namespace Management.Persistence;
+﻿namespace Management.Persistence;
 
 [SuppressMessage("ReSharper", "InconsistentNaming")]
 public static class DependencyInjeciton

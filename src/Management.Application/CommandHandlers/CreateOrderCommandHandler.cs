@@ -1,13 +1,4 @@
-﻿using Contracts.Events;
-using Contracts.Models;
-using Domain.Entities;
-using Management.Application.MappersV2;
-using Management.Application.Providers.Time;
-using Management.Application.Results;
-using MassTransit;
-using Mediator;
-
-namespace Management.Application.CommandHandlers;
+﻿namespace Management.Application.CommandHandlers;
 
 public record CreateOrderCommand(int CustomerId, ICollection<OrderItemModel> OrderItems) : IRequest<CommandResult<Guid>>;
 

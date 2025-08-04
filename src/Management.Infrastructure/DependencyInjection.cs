@@ -1,10 +1,4 @@
-﻿using Management.Application;
-using Management.Application.Providers.Time;
-using Management.Infrastructure.Messaging;
-using Management.Infrastructure.Time;
-using Microsoft.Extensions.DependencyInjection;
-
-namespace Management.Infrastructure;
+﻿namespace Management.Infrastructure;
 
 public static class DependencyInjection
 {
