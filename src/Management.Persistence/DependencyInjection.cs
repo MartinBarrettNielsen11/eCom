@@ -1,7 +1,6 @@
 ﻿namespace Management.Persistence;
 
-[SuppressMessage("ReSharper", "InconsistentNaming")]
-public static class DependencyInjeciton
+public static class DependencyInjection
 {
     public static IServiceCollection AddPersistence(this IServiceCollection services, IConfiguration config)
     {
