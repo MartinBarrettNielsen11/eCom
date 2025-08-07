@@ -1,11 +1,12 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
     <PropertyGroup>
         <TargetFramework>net9.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
         <RootNamespace>Api</RootNamespace>
-    </PropertyGroup>
+      <UserSecretsId>da0152a3-e2d5-4561-a8af-eac2021a2ee4</UserSecretsId>
+  </PropertyGroup>
 
     <ItemGroup>
         <PackageReference Include="AutoMapper" Version="14.0.0" />
@@ -16,7 +17,7 @@
           <PrivateAssets>all</PrivateAssets>
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
-        <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.4"/>
+        <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.4" />
         <PackageReference Include="Microsoft.Azure.Cosmos" Version="3.52.0-preview.0" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Cosmos" Version="9.0.5" />
         <PackageReference Include="Microsoft.Extensions.Configuration" Version="10.0.0-preview.5.25277.114" />
