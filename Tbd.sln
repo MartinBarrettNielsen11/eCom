@@ -25,9 +25,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{4D323021-975
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{7D129716-1E7E-4C1E-B82B-4D542A0857E1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tbd.UnitTests", "Tbd.UnitTests\Tbd.UnitTests.csproj", "{E84539FF-B19A-42B0-A52C-BB3342E1C528}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tbd.UnitTests", "test\Tbd.UnitTests\Tbd.UnitTests.csproj", "{E84539FF-B19A-42B0-A52C-BB3342E1C528}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tbd.IntegrationTests", "Tbd.IntegrationTests\Tbd.IntegrationTests.csproj", "{378809B2-9D15-4B30-AED1-8CDD43467D74}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tbd.IntegrationTests", "test\Tbd.IntegrationTests\Tbd.IntegrationTests.csproj", "{378809B2-9D15-4B30-AED1-8CDD43467D74}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
