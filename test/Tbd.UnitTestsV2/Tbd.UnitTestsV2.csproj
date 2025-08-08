@@ -5,6 +5,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <IsPackable>false</IsPackable>
+        <RootNamespace>Tbd.UnitTests</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
@@ -16,6 +17,11 @@
 
     <ItemGroup>
         <Using Include="Xunit"/>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Application\" />
+      <Folder Include="Domain\" />
     </ItemGroup>
 
 </Project>

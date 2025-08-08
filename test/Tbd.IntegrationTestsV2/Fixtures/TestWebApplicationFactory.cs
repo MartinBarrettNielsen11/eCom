@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc.Testing;
 
-namespace IntegrationTests.Fixtures;
+namespace IntegrationTestsV2.Fixtures;
 
 public class TestWebApplicationFactory : WebApplicationFactory<ProgramApi> { }
