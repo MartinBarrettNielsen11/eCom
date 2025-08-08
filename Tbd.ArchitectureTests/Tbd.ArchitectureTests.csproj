@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <IsPackable>false</IsPackable>
+        <RootNamespace>ArchitectureTests</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="coverlet.collector" Version="6.0.2"/>
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.12.0"/>
+        <PackageReference Include="xunit" Version="2.9.2"/>
+        <PackageReference Include="xunit.runner.visualstudio" Version="2.8.2"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Using Include="Xunit"/>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\src\Management.Api\Management.Api.csproj" />
+      <ProjectReference Include="..\src\Management.Application\Management.Application.csproj" />
+      <ProjectReference Include="..\src\Management.Domain\Management.Domain.csproj" />
+      <ProjectReference Include="..\src\Management.Infrastructure\Management.Infrastructure.csproj" />
+      <ProjectReference Include="..\src\Management.Persistence\Management.Persistence.csproj" />
+    </ItemGroup>
+
+</Project>
