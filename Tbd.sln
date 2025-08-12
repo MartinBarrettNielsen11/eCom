@@ -31,6 +31,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tbd.UnitTests", "tests\Tbd.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tbd.ArchitectureTests", "tests\Tbd.ArchitectureTests\Tbd.ArchitectureTests.csproj", "{2CF4818C-7ABC-4ACE-99D7-6783F1DA9057}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "solution items", "solution items", "{E6E68C01-1E8F-42C8-A048-F8E9A2FDB896}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
