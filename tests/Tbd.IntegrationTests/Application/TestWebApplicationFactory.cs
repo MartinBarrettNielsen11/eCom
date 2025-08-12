@@ -1,4 +1,4 @@
-namespace Tbd.IntegrationTestsV2.Application;
+namespace Tbd.IntegrationTests.Application;
 
 public class TestWebApplicationFactory
 {

@@ -25,11 +25,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{4D323021-975
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{7D129716-1E7E-4C1E-B82B-4D542A0857E1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tbd.IntegrationTests", "test\Tbd.IntegrationTests\Tbd.IntegrationTests.csproj", "{9197EC46-16D3-4B8E-BA45-D82E6EA5F9C4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tbd.IntegrationTests", "tests\Tbd.IntegrationTests\Tbd.IntegrationTests.csproj", "{9197EC46-16D3-4B8E-BA45-D82E6EA5F9C4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tbd.UnitTests", "test\Tbd.UnitTests\Tbd.UnitTests.csproj", "{E7A3E8A5-20B2-45D4-9BC2-8740FFD9B926}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tbd.UnitTests", "tests\Tbd.UnitTests\Tbd.UnitTests.csproj", "{E7A3E8A5-20B2-45D4-9BC2-8740FFD9B926}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tbd.ArchitectureTests", "Tbd.ArchitectureTests\Tbd.ArchitectureTests.csproj", "{2CF4818C-7ABC-4ACE-99D7-6783F1DA9057}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tbd.ArchitectureTests", "tests\Tbd.ArchitectureTests\Tbd.ArchitectureTests.csproj", "{2CF4818C-7ABC-4ACE-99D7-6783F1DA9057}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

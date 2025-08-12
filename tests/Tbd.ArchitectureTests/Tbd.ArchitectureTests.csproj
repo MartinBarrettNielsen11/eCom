@@ -20,11 +20,11 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\src\Management.Api\Management.Api.csproj" />
-      <ProjectReference Include="..\src\Management.Application\Management.Application.csproj" />
-      <ProjectReference Include="..\src\Management.Domain\Management.Domain.csproj" />
-      <ProjectReference Include="..\src\Management.Infrastructure\Management.Infrastructure.csproj" />
-      <ProjectReference Include="..\src\Management.Persistence\Management.Persistence.csproj" />
+      <ProjectReference Include="..\..\src\Management.Api\Management.Api.csproj" />
+      <ProjectReference Include="..\..\src\Management.Application\Management.Application.csproj" />
+      <ProjectReference Include="..\..\src\Management.Domain\Management.Domain.csproj" />
+      <ProjectReference Include="..\..\src\Management.Infrastructure\Management.Infrastructure.csproj" />
+      <ProjectReference Include="..\..\src\Management.Persistence\Management.Persistence.csproj" />
     </ItemGroup>
 
 </Project>
