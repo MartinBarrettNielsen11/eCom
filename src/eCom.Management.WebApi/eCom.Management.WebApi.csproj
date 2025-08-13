@@ -28,9 +28,9 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Contracts\Contracts.csproj" />
-      <ProjectReference Include="..\Management.Infrastructure\Management.Infrastructure.csproj" />
-      <ProjectReference Include="..\Management.Persistence\Management.Persistence.csproj" />
+      <ProjectReference Include="..\eCom.Contracts\eCom.Contracts.csproj" />
+      <ProjectReference Include="..\eCom.Management.Infrastructure\eCom.Management.Infrastructure.csproj" />
+      <ProjectReference Include="..\eCom.Management.Persistence\eCom.Management.Persistence.csproj" />
     </ItemGroup>
 
 </Project>

@@ -20,11 +20,11 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\src\Management.Api\Management.Api.csproj" />
-      <ProjectReference Include="..\..\src\Management.Application\Management.Application.csproj" />
-      <ProjectReference Include="..\..\src\Management.Domain\Management.Domain.csproj" />
-      <ProjectReference Include="..\..\src\Management.Infrastructure\Management.Infrastructure.csproj" />
-      <ProjectReference Include="..\..\src\Management.Persistence\Management.Persistence.csproj" />
+      <ProjectReference Include="..\..\src\eCom.Management.WebApi\eCom.Management.WebApi.csproj" />
+      <ProjectReference Include="..\..\src\eCom.Management.Application\eCom.Management.Application.csproj" />
+      <ProjectReference Include="..\..\src\eCom.Management.Domain\eCom.Management.Domain.csproj" />
+      <ProjectReference Include="..\..\src\eCom.Management.Infrastructure\eCom.Management.Infrastructure.csproj" />
+      <ProjectReference Include="..\..\src\eCom.Management.Persistence\eCom.Management.Persistence.csproj" />
     </ItemGroup>
 
 </Project>

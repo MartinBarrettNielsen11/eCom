@@ -2,6 +2,7 @@
 
     <PropertyGroup>
         <TargetFramework>net9.0</TargetFramework>
+        <RootNamespace>OrderCreation.Worker</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
@@ -11,7 +12,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Contracts\Contracts.csproj" />
-        <ProjectReference Include="..\Management.Infrastructure\Management.Infrastructure.csproj" />
+        <ProjectReference Include="..\eCom.Contracts\eCom.Contracts.csproj" />
+        <ProjectReference Include="..\eCom.Management.Infrastructure\eCom.Management.Infrastructure.csproj" />
     </ItemGroup>
 </Project>

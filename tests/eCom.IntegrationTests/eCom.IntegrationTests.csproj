@@ -5,6 +5,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <IsPackable>false</IsPackable>
+        <RootNamespace>Tbd.IntegrationTests</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
@@ -20,7 +21,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\src\Management.Api\Management.Api.csproj" />
+      <ProjectReference Include="..\..\src\eCom.Management.WebApi\eCom.Management.WebApi.csproj" />
     </ItemGroup>
 
 </Project>

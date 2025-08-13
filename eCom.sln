@@ -3,33 +3,33 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Management", "Management", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Contracts", "Contracts", "{9F2B2922-1AC1-4B45-AFC7-AD8C21507EEC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Management.Api", "src\Management.Api\Management.Api.csproj", "{4C98EB3D-39C1-43C4-9529-27B040A1FD66}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eCom.Management.WebApi", "src\eCom.Management.WebApi\eCom.Management.WebApi.csproj", "{4C98EB3D-39C1-43C4-9529-27B040A1FD66}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Management.Application", "src\Management.Application\Management.Application.csproj", "{F6D3D35B-8626-4FEA-8E57-D6E278AAFC82}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eCom.Management.Application", "src\eCom.Management.Application\eCom.Management.Application.csproj", "{F6D3D35B-8626-4FEA-8E57-D6E278AAFC82}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Management.Domain", "src\Management.Domain\Management.Domain.csproj", "{5FB590CB-7014-4DD7-AAAD-AD91590FF1CC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eCom.Management.Domain", "src\eCom.Management.Domain\eCom.Management.Domain.csproj", "{5FB590CB-7014-4DD7-AAAD-AD91590FF1CC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Management.Infrastructure", "src\Management.Infrastructure\Management.Infrastructure.csproj", "{328A7324-5BD1-4211-8139-AA488A2C6AEF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eCom.Management.Infrastructure", "src\eCom.Management.Infrastructure\eCom.Management.Infrastructure.csproj", "{328A7324-5BD1-4211-8139-AA488A2C6AEF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contracts", "src\Contracts\Contracts.csproj", "{87C3FECD-CC3A-4EAB-80DD-81C9808A39D7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eCom.Contracts", "src\eCom.Contracts\eCom.Contracts.csproj", "{87C3FECD-CC3A-4EAB-80DD-81C9808A39D7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdminNotification.Worker", "src\AdminNotification.Worker\AdminNotification.Worker.csproj", "{B7F6CC8E-E050-4526-9CE6-A78C9BE7635C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eCom.AdminNotification.Worker", "src\eCom.AdminNotification.Worker\eCom.AdminNotification.Worker.csproj", "{B7F6CC8E-E050-4526-9CE6-A78C9BE7635C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderCreation.Worker", "src\OrderCreation.Worker\OrderCreation.Worker.csproj", "{AD71F498-9E47-492B-9FB5-FBC191A5E292}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eCom.OrderCreation.Worker", "src\eCom.OrderCreation.Worker\eCom.OrderCreation.Worker.csproj", "{AD71F498-9E47-492B-9FB5-FBC191A5E292}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BackgroundWorkers", "BackgroundWorkers", "{6F7F8A59-92F2-419E-9D98-3F340DF679F6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Management.Persistence", "src\Management.Persistence\Management.Persistence.csproj", "{290ADCB0-A4C2-4049-8DE7-8FDA5F54BD41}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eCom.Management.Persistence", "src\eCom.Management.Persistence\eCom.Management.Persistence.csproj", "{290ADCB0-A4C2-4049-8DE7-8FDA5F54BD41}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{4D323021-975C-4A3A-8A6C-4DAF901FC118}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{7D129716-1E7E-4C1E-B82B-4D542A0857E1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tbd.IntegrationTests", "tests\Tbd.IntegrationTests\Tbd.IntegrationTests.csproj", "{9197EC46-16D3-4B8E-BA45-D82E6EA5F9C4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eCom.IntegrationTests", "tests\eCom.IntegrationTests\eCom.IntegrationTests.csproj", "{9197EC46-16D3-4B8E-BA45-D82E6EA5F9C4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tbd.UnitTests", "tests\Tbd.UnitTests\Tbd.UnitTests.csproj", "{E7A3E8A5-20B2-45D4-9BC2-8740FFD9B926}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eCom.UnitTests", "tests\eCom.UnitTests\eCom.UnitTests.csproj", "{E7A3E8A5-20B2-45D4-9BC2-8740FFD9B926}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tbd.ArchitectureTests", "tests\Tbd.ArchitectureTests\Tbd.ArchitectureTests.csproj", "{2CF4818C-7ABC-4ACE-99D7-6783F1DA9057}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eCom.ArchitectureTests", "tests\eCom.ArchitectureTests\eCom.ArchitectureTests.csproj", "{2CF4818C-7ABC-4ACE-99D7-6783F1DA9057}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "solution items", "solution items", "{E6E68C01-1E8F-42C8-A048-F8E9A2FDB896}"
 	ProjectSection(SolutionItems) = preProject
