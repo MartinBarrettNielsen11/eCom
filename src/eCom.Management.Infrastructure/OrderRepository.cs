@@ -20,11 +20,17 @@ public class OrderRepository(IOrderContext context) : IOrderRepository
     
     private static void SetIds(Order order)
     {
-        if (order.Id == Guid.Empty) order.Id = Guid.CreateVersion7();
+        if (order.Id == Guid.Empty)
+        {
+            order.Id = Guid.CreateVersion7();
+        }
 
         foreach (var item in order.OrderItems)
         {
-            if (item.Id == Guid.Empty) item.Id = Guid.CreateVersion7(); 
+            if (item.Id == Guid.Empty)
+            {
+                item.Id = Guid.CreateVersion7();
+            }
         }
     }
 }
