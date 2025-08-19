@@ -1,4 +1,4 @@
-﻿namespace Management.Application.MappersV2;
+namespace Management.Application.Mappers;
 
 [Mapper]
 public partial class OrderMapper
