@@ -76,8 +76,7 @@ var containerProperties = new ContainerProperties
 // Try to create container with specified config
 // Verify setup n azure portal and set autoscale/manual RU's accordingly.
 await database.CreateContainerIfNotExistsAsync(
-    containerProperties,
-    throughput: 1000 // autoscale or manual RU/s
+    containerProperties
 );
 
 app.Run();
