@@ -1,0 +1,51 @@
+<Project>
+  <PropertyGroup>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- EF Core & NetArchTest -->
+    <PackageVersion Include="Microsoft.EntityFrameworkCore" Version="9.0.8" />
+    <PackageVersion Include="NetArchTest.Rules" Version="1.3.2" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.8"/>
+    <PackageVersion Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageVersion Include="AutoMapper" Version="14.0.0" />
+    <PackageVersion Include="Azure.Identity" Version="1.14.0" />
+    <PackageVersion Include="MassTransit.RabbitMQ" Version="8.4.1" />
+    <PackageVersion Include="Mediator.Abstractions" Version="3.0.0-preview.65" />
+    <PackageVersion Include="Mediator.SourceGenerator" Version="3.0.0-preview.65"/>
+
+    <PackageVersion Include="MassTransit.RabbitMQ" Version="8.4.1" />
+    <PackageVersion Include="Microsoft.Extensions.Hosting" Version="8.0.0"/>
+    <PackageVersion Include="MassTransit" Version="[8.*,9.0)"/>
+    
+    <PackageVersion Include="Microsoft.AspNetCore.OpenApi" Version="9.0.4" />
+    <PackageVersion Include="Microsoft.Azure.Cosmos" Version="3.52.0-preview.0" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.Cosmos" Version="9.0.5" />
+    <PackageVersion Include="Microsoft.Extensions.Configuration" Version="10.0.0-preview.5.25277.114" />
+    <PackageVersion Include="Microsoft.Extensions.Configuration.Binder" Version="10.0.0-preview.5.25277.114" />
+    <PackageVersion Include="Microsoft.Extensions.Configuration.Json" Version="10.0.0-preview.5.25277.114" />
+    <PackageVersion Include="Microsoft.Extensions.Configuration.UserSecrets" Version="10.0.0-preview.5.25277.114" />
+    <PackageVersion Include="Scalar.AspNetCore" Version="2.3.0" />
+    
+    <!-- Test packages moved from .csproj -->
+    <PackageVersion Include="coverlet.collector" Version="6.0.2" />
+    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.12.0" />
+    <PackageVersion Include="xunit" Version="2.9.2" />
+    <PackageVersion Include="xunit.runner.visualstudio" Version="2.8.2" />
+    <PackageVersion Include="MassTransit.RabbitMQ" Version="8.4.1" />
+    <PackageVersion Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.5" />
+    <PackageVersion Include="MassTransit.Abstractions" Version="8.4.1" />
+    <PackageVersion Include="Mediator.Abstractions" Version="3.0.0-preview.65" />
+    <PackageVersion Include="Mediator.SourceGenerator" Version="3.0.0-preview.65"/>
+    <PackageVersion Include="SonarAnalyzer.CSharp" Version="9.0.0.68202" />
+    <PackageVersion Include="Azure.Identity" Version="1.14.0" />
+    <PackageVersion Include="Microsoft.Azure.Cosmos" Version="3.52.0-preview.0" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore" Version="9.0.8" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.Cosmos" Version="9.0.8" />
+    <PackageVersion Include="Microsoft.Extensions.Configuration" Version="10.0.0-preview.5.25277.114" />
+    <PackageVersion Include="Microsoft.Extensions.Configuration.Binder" Version="10.0.0-preview.5.25277.114" />
+    <PackageVersion Include="Microsoft.Extensions.Configuration.Json" Version="10.0.0-preview.5.25277.114" />
+    <PackageVersion Include="Microsoft.Extensions.Configuration.UserSecrets" Version="10.0.0-preview.5.25277.114" />
+  </ItemGroup>
+</Project>
