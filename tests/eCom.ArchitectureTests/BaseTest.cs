@@ -1,9 +1,7 @@
 ﻿using System.Reflection;
-using Domain.Entities;
-using Management.Application;
+using Domain.Orders;
 using Management.Application.Messaging;
 using Management.Infrastructure.Time;
-using Management.Persistence;
 using Management.Persistence.Configurations;
 
 namespace ArchitectureTests;

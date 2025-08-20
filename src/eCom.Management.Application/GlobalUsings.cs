@@ -3,9 +3,9 @@
 global using System.Reflection;
 global using Contracts.Events;
 global using Contracts.Models;
-global using Domain.Entities;
-global using Management.Application.CommandHandlers;
-global using Management.Application.Mappers;
+global using Domain.Orders;
+global using Management.Application.Order.Handlers.Command;
+global using Management.Application.Order.Mappers;
 global using Management.Application.Providers.Time;
 global using Management.Application.Results;
 global using MassTransit;

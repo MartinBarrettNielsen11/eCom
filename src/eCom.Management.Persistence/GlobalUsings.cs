@@ -1,7 +1,8 @@
 ﻿// Global using directives
 
 global using System.Diagnostics.CodeAnalysis;
-global using Domain.Entities;
+global using Domain.Orders;
+global using Domain.Customers;
 global using Management.Application;
 global using Management.Infrastructure;
 global using Management.Persistence.Configurations;

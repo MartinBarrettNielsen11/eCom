@@ -1,7 +1,7 @@
 ﻿// Global using directives
 
 global using Contracts.Events;
-global using Domain.Entities;
+global using Domain.Orders;
 global using Management.Application;
 global using Management.Application.Providers.Time;
 global using Management.Infrastructure.Messaging;

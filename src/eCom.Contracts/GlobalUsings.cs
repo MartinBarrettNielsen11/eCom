@@ -2,4 +2,5 @@
 
 global using AutoMapper;
 global using Contracts.Models;
-global using Domain.Entities;
+global using Domain.Orders;
+global using Domain.Customers;

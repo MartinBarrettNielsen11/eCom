@@ -1,7 +1,8 @@
 ﻿using System.Text.Json.Serialization;
+using Domain.Orders;
 using Newtonsoft.Json;
 
-namespace Domain.Entities;
+namespace Domain.Customers;
 
 public class Customer
 {

@@ -2,7 +2,7 @@
 using System.Text.Json.Serialization;
 using Newtonsoft.Json;
 
-namespace Domain.Entities;
+namespace Domain.Orders;
 
 public class OrderItem
 {

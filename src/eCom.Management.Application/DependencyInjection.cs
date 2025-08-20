@@ -1,4 +1,6 @@
-﻿namespace Management.Application;
+﻿using Management.Application.Order.Mappers;
+
+namespace Management.Application;
 
 public static class DependencyInjection
 {

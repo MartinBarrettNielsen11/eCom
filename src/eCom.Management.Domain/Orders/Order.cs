@@ -1,6 +1,7 @@
-﻿using Newtonsoft.Json;
+﻿using Domain.Customers;
+using Newtonsoft.Json;
 
-namespace Domain.Entities;
+namespace Domain.Orders;
 
 public class Order
 {
