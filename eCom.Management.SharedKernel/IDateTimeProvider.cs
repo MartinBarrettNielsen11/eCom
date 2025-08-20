@@ -1,4 +1,4 @@
-﻿namespace Management.Application.Providers.Time;
+﻿namespace Management.SharedKernel;
 
 /// <summary>
 ///     Interface for mocking the current UTC date and time.

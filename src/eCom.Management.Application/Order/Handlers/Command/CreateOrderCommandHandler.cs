@@ -4,21 +4,14 @@ public sealed class CreateOrderCommandHandler(
     IPublishEndpoint publishEndpoint, 
     IOrderService orderService,
     IDateTimeProvider dateTimeProvider,
-    OrderMapper mapper,
     IUnitOfWork unitOfWork) : IRequestHandler<CreateOrderCommand, CommandResult<Guid>>
 {
     public async ValueTask<CommandResult<Guid>> Handle(
         CreateOrderCommand command, 
         CancellationToken cancellationToken)
     {
-        var order = mapper.MapToOrder(command);
-        // TO-DO: Determine a way around this issue when using riok/mapperly
-        // old approach is used below
-        order.OrderDate = dateTimeProvider.UtcNow;
-        
-        var order2 = new Domain.Orders.Order()
+        var order = new Domain.Orders.Order()
         {
-            Id = order.Id,
             CustomerId = command.CustomerId,
             OrderDate = dateTimeProvider.UtcNow,
             OrderItems = Enumerable.Select<OrderItemModel, OrderItem>(command.OrderItems, item => new OrderItem
@@ -29,8 +22,7 @@ public sealed class CreateOrderCommandHandler(
             }).ToList()
         };
         
-        
-        var createdOrder = await orderService.CreateOrder(order2, cancellationToken);
+        var createdOrder = await orderService.CreateOrder(order, cancellationToken);
         
         await unitOfWork.SaveChangesAsync(cancellationToken);
 

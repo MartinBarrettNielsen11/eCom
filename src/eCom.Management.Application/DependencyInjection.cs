@@ -1,13 +1,10 @@
-﻿using Management.Application.Order.Mappers;
-
-namespace Management.Application;
+﻿namespace Management.Application;
 
 public static class DependencyInjection
 {
     public static IServiceCollection AddApplication(this IServiceCollection services) =>
         services
-            .AddConfiguredMediator()
-            .AddScoped<OrderMapper>();
+            .AddConfiguredMediator();
     
     private static IServiceCollection AddConfiguredMediator(this IServiceCollection services) =>
         services.AddMediator(opts =>
