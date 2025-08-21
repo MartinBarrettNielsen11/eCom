@@ -15,7 +15,6 @@
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       </PackageReference>
       <PackageVersion Include="Microsoft.EntityFrameworkCore"/>
-      <PackageReference Include="Riok.Mapperly" Version="4.3.0-next.0" />
     </ItemGroup>
 
     <ItemGroup>
