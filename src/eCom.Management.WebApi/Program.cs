@@ -62,7 +62,7 @@ app.MapOpenApi().AllowAnonymous();
 
 app.MapScalarApiReference(options =>
 {
-    options.Title = "Tbd.Api";
+    options.Title = "eCom.WebApi";
     options.Theme = ScalarTheme.Laserwave;
 }).AllowAnonymous();
 
