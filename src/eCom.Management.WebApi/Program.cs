@@ -47,8 +47,8 @@ var app = builder.Build();
 
 app.UseHttpsRedirection();
 
-app.MapPost("/orders", async(
-    [FromBody] CreateOrderRequest request, 
+app.MapPost("/orders", async (
+    [FromBody] CreateOrderRequest request,
     IMediator mediator,
     CancellationToken cancellationToken) =>
     {
@@ -79,7 +79,13 @@ await database.CreateContainerIfNotExistsAsync(
     containerProperties
 );
 
-app.Run();
+client.Dispose();
+
+await app.RunAsync();
 
 
-public partial class ProgramApi;
+// REMARK: Required for functional and integration tests to work.
+namespace Api
+{
+    public partial class ProgramApi;
+}

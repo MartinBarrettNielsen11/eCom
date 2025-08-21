@@ -5,7 +5,7 @@ public class CreateOrderConsumer(IOrderService orderService) : IConsumer<OrderMo
     public async Task Consume(ConsumeContext<OrderModel> context)
     {
         Console.WriteLine($"I got a command to create an order: {context.Message}");
-        
+        await orderService.OrderExistsAsync(Guid.NewGuid(), CancellationToken.None);
         // to do: copy over relavent parts from current handler over here.
         
         await Task.CompletedTask;

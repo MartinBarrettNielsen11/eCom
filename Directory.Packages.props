@@ -39,7 +39,7 @@
     <PackageVersion Include="Mediator.Abstractions" Version="3.0.0-preview.65" />
     <PackageVersion Include="Mediator.SourceGenerator" Version="3.0.0-preview.65"/>
     <PackageVersion Include="SonarAnalyzer.CSharp" Version="9.0.0.68202" />
-    <PackageVersion Include="Azure.Identity" Version="1.14.0" />
+    <PackageVersion Include="Shouldly" Version="4.3.0" />
     <PackageVersion Include="Microsoft.Azure.Cosmos" Version="3.52.0-preview.0" />
     <PackageVersion Include="Microsoft.EntityFrameworkCore" Version="9.0.8" />
     <PackageVersion Include="Microsoft.EntityFrameworkCore.Cosmos" Version="9.0.8" />
@@ -47,5 +47,6 @@
     <PackageVersion Include="Microsoft.Extensions.Configuration.Binder" Version="10.0.0-preview.5.25277.114" />
     <PackageVersion Include="Microsoft.Extensions.Configuration.Json" Version="10.0.0-preview.5.25277.114" />
     <PackageVersion Include="Microsoft.Extensions.Configuration.UserSecrets" Version="10.0.0-preview.5.25277.114" />
+    <PackageVersion Include="Microsoft.AspNetCore.Mvc.Testing" Version="9.0.8" />
   </ItemGroup>
 </Project>
