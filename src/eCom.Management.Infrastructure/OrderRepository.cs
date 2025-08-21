@@ -5,7 +5,7 @@ public class OrderRepository(IOrderContext context) : IOrderRepository
     public async Task<Order> CreateOrder(Order order, CancellationToken cancellationToken)
     {
         SetIds(order); 
-        context.Orders.Add(order);
+        await context.Orders.AddAsync(order, cancellationToken);
         return order;
     }
 

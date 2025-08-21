@@ -34,6 +34,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "solution items", "solution items", "{E6E68C01-1E8F-42C8-A048-F8E9A2FDB896}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
+		Directory.Packages.props = Directory.Packages.props
+		Directory.Build.props = Directory.Build.props
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eCom.Management.SharedKernel", "eCom.Management.SharedKernel\eCom.Management.SharedKernel.csproj", "{C5FD2911-EF80-4339-8F01-2667B20088E3}"

@@ -82,4 +82,4 @@ await database.CreateContainerIfNotExistsAsync(
 app.Run();
 
 
-public class ProgramApi;
+public partial class ProgramApi;
