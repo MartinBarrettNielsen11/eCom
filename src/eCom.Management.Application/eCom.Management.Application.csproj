@@ -18,7 +18,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\eCom.Management.SharedKernel\eCom.Management.SharedKernel.csproj" />
+      <ProjectReference Include="..\eCom.Management.SharedKernel\eCom.Management.SharedKernel.csproj" />
       <ProjectReference Include="..\eCom.Contracts\eCom.Contracts.csproj" />
       <ProjectReference Include="..\eCom.Management.Domain\eCom.Management.Domain.csproj" />
     </ItemGroup>

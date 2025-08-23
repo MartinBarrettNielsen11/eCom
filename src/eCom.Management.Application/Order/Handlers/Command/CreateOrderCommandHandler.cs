@@ -1,4 +1,6 @@
-﻿namespace Management.Application.Order.Handlers.Command;
+﻿using Management.SharedKernel;
+
+namespace Management.Application.Order.Handlers.Command;
 
 public sealed class CreateOrderCommandHandler(
     IPublishEndpoint publishEndpoint, 
