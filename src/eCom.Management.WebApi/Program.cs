@@ -73,11 +73,7 @@ var containerProperties = new ContainerProperties
     // Optional indexingPolicy, default TTL, etc. can go here
 };
 
-// Try to create container with specified config
-// Verify setup n azure portal and set autoscale/manual RU's accordingly.
-await database.CreateContainerIfNotExistsAsync(
-    containerProperties
-);
+await database.CreateContainerIfNotExistsAsync(containerProperties);
 
 client.Dispose();
 
