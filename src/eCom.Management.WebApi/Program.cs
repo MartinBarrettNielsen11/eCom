@@ -2,6 +2,7 @@ using Api.Requests.CreateRequest;
 using Management.Infrastructure;
 using Management.Infrastructure.Messaging;
 using Management.Persistence;
+using Management.SharedKernel.Results;
 using Mediator;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.Cosmos;
@@ -53,7 +54,7 @@ app.MapPost("/orders", async (
     CancellationToken cancellationToken) =>
     {
         var result = await mediator.Send(request.ToCommand(), cancellationToken);
-        return result.Result;
+        return result.Match(Results.NoContent, CustomResults.Problem);
     })
     .Produces(StatusCodes.Status200OK)
     .Produces(StatusCodes.Status400BadRequest);

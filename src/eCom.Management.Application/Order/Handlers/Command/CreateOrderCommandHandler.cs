@@ -1,4 +1,4 @@
-﻿using Management.SharedKernel;
+﻿using Management.SharedKernel.Results;
 
 namespace Management.Application.Order.Handlers.Command;
 
@@ -6,9 +6,9 @@ public sealed class CreateOrderCommandHandler(
     IPublishEndpoint publishEndpoint, 
     IOrderService orderService,
     IDateTimeProvider dateTimeProvider,
-    IUnitOfWork unitOfWork) : IRequestHandler<CreateOrderCommand, CommandResult<Guid>>
+    IUnitOfWork unitOfWork) : IRequestHandler<CreateOrderCommand, Result<Guid>>
 {
-    public async ValueTask<CommandResult<Guid>> Handle(
+    public async ValueTask<Result<Guid>> Handle(
         CreateOrderCommand command, 
         CancellationToken cancellationToken)
     {
@@ -39,6 +39,6 @@ public sealed class CreateOrderCommandHandler(
             context.TimeToLive = TimeSpan.FromSeconds(30);
         }, cancellationToken);
         
-        return CommandResult.Success(createdOrder.Id);
+        return createdOrder.Id;
     }
 }
