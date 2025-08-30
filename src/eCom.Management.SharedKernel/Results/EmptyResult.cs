@@ -1,4 +1,4 @@
-﻿namespace Management.Application.Results;
+﻿namespace Management.SharedKernel.Results;
 
 public sealed class EmptyResult
 {

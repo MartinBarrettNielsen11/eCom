@@ -5,7 +5,7 @@ global using Contracts.Events;
 global using Contracts.Models;
 global using Domain.Orders;
 global using Management.SharedKernel;
-global using Management.Application.Results;
+global using Management.SharedKernel.Results;
 global using MassTransit;
 global using Mediator;
 global using Microsoft.EntityFrameworkCore;
