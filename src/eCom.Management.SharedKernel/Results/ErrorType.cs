@@ -2,11 +2,9 @@
 
 public enum ErrorType
 {
-    None,
-    BadRequest,
-    NotFound,
-    Forbidden,
+    Failure,
     Validation,
-    Conflict,
-    Other
+    Problem,
+    NotFound,
+    Conflict
 }
