@@ -4,7 +4,7 @@ public static class DependencyInjection
 {
     public static IServiceCollection AddPersistence(this IServiceCollection services, IConfiguration config)
     {
-        var cosmosSettings = config.GetSection("Cosmos")
+        CosmosSettings cosmosSettings = config.GetSection("Cosmos")
             .Get<CosmosSettings>() ?? throw new InvalidOperationException("Cosmos config missing");
         
         services.AddSingleton(cosmosSettings);

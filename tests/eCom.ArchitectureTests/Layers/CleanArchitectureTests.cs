@@ -8,7 +8,7 @@ public class CleanArchitectureTests : BaseTest
     [Fact]
     public void Domain_layer_should_not_depend_on_any_of_layer()
     {
-        var result = Types.InAssembly(DomainAssembly)
+        TestResult? result = Types.InAssembly(DomainAssembly)
             .Should()
             .NotHaveDependencyOnAny(
                 ApplicationAssembly.GetName().Name,

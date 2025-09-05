@@ -17,7 +17,7 @@ public static class Program
                     
                 services.AddMassTransit(x =>
                 {
-                    var entryAssembly = Assembly.GetEntryAssembly();
+                    Assembly? entryAssembly = Assembly.GetEntryAssembly();
                     x.AddConsumers(entryAssembly);
                     x.UsingRabbitMq((context, cfg) => { cfg.ConfigureEndpoints(context); });
                 });

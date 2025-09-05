@@ -25,7 +25,7 @@ public class OrderRepository(IOrderContext context) : IOrderRepository
             order.Id = Guid.CreateVersion7();
         }
 
-        foreach (var item in order.OrderItems)
+        foreach (OrderItem item in order.OrderItems)
         {
             if (item.Id == Guid.Empty)
             {

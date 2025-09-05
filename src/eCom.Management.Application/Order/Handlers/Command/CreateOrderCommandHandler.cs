@@ -10,7 +10,7 @@ public sealed class CreateOrderCommandHandler(
         CreateOrderCommand command, 
         CancellationToken cancellationToken)
     {
-        var order = new Domain.Orders.Order()
+        Domain.Orders.Order order = new()
         {
             CustomerId = command.CustomerId,
             OrderDate = dateTimeProvider.UtcNow,
@@ -22,7 +22,7 @@ public sealed class CreateOrderCommandHandler(
             }).ToList()
         };
         
-        var createdOrder = await orderService.CreateOrder(order, cancellationToken);
+        Domain.Orders.Order createdOrder = await orderService.CreateOrder(order, cancellationToken);
         
         await unitOfWork.SaveChangesAsync(cancellationToken);
 
