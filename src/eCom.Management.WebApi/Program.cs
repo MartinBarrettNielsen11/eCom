@@ -1,6 +1,6 @@
+using Api.Infrastructure;
 using Api.Requests.CreateRequest;
 using Management.Infrastructure;
-using Management.Infrastructure.Messaging;
 using Management.Persistence;
 using Management.SharedKernel.Results;
 using Mediator;
