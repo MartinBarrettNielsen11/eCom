@@ -1,7 +1,18 @@
 namespace Management.SharedKernel.Results;
 
-public record Error(string Code, string Description, ErrorType Type)
+public record Error
 {
+    public string Code { get; set; }
+    public string Description { get; set; }
+    public ErrorType Type { get; set; }
+
+    public Error(string code, string description, ErrorType type)
+    {
+        Code = code;
+        Description = description;
+        Type = type;
+    }
+    
     public static readonly Error None = new(
         string.Empty, 
         string.Empty, 
