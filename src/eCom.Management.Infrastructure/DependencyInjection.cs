@@ -1,6 +1,4 @@
-﻿using Management.Application;
-
-namespace Management.Infrastructure;
+﻿namespace Management.Infrastructure;
 
 public static class DependencyInjection
 {
